@@ -9,9 +9,10 @@ namespace MvcForbiddenIsland.Models.Interface
 {
     public interface IIslandTile
     {
-        int Id { get; set; }
+        Guid Id { get; set; }
         string Name { get; set; }
         MvcForbiddenIsland.Enum.Enums.TileState SubmergedState { get; set; }
         MvcForbiddenIsland.Enum.Enums.PlayerColour StartingTileForPlayer { get; set; }
+        bool HelicopterSite { get; set; }
     }
 }

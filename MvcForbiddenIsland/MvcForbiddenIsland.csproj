@@ -184,6 +184,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Enum\Enums.cs" />
+    <Compile Include="Factory\IslandFactory.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -191,6 +192,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Interface\IIsland.cs" />
     <Compile Include="Models\Interface\IIslandTile.cs" />
+    <Compile Include="Models\Island.cs" />
+    <Compile Include="Models\IslandTile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -307,7 +310,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Factory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
