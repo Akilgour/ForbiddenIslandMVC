@@ -104,7 +104,7 @@ namespace MvcForbiddenIsland.Factory
         private IslandTile CreateIslandTile(string tileName, Enum.Enums.PlayerColour startingTileForPlayer, bool helicopterSite)
         {
             var islandTile = new IslandTile();
-            islandTile.Id = new Guid();
+            islandTile.Id = Guid.NewGuid();
             islandTile.Name = tileName;
             islandTile.StartingTileForPlayer = startingTileForPlayer;
             islandTile.SubmergedState = Enum.Enums.TileState.Normal;
