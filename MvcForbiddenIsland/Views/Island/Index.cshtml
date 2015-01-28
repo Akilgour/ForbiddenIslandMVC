@@ -19,8 +19,16 @@
     {
         <tr>
             <td>
-                @item.Name
+                @DisplayIslandTile(item)
             </td>
         </tr>
     }
 </table>
+
+@helper DisplayIslandTile(MvcForbiddenIsland.Models.IslandTile islandTile)
+{
+    @islandTile.Id
+    @islandTile.Name
+    @islandTile.StartingTileForPlayer
+    @islandTile.SubmergedState
+}
