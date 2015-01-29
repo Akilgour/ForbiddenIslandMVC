@@ -13,81 +13,84 @@ namespace MvcForbiddenIsland.Factory
         {
             var island = new Island();
 
-            island.IslandBoard = new List<IslandTile>();
+           // island.IslandBoard = new List<IslandTile>();
+            List<IslandTile> islandBoard = new List<IslandTile>();
 
             //AK so i know this should be passed in by a list, that is loaded from a external file, but this is first pass
 
             //A
 
             //B 2
-            island.IslandBoard.Add(CreateIslandTile("Breakers Bridge"));
-            island.IslandBoard.Add(CreateIslandTile("Bronze Gate",Enum.Enums.PlayerColour.Red));
+            islandBoard.Add(CreateIslandTile("Breakers Bridge"));
+            islandBoard.Add(CreateIslandTile("Bronze Gate",Enum.Enums.PlayerColour.Red));
 
             //C 6
-            island.IslandBoard.Add(CreateIslandTile("Cave of Embers"));
-            island.IslandBoard.Add(CreateIslandTile("Cave of Shadows"));
-            island.IslandBoard.Add(CreateIslandTile("Cliffs of Abandon"));
-            island.IslandBoard.Add(CreateIslandTile("Copper Gate",Enum.Enums.PlayerColour.Green));
-            island.IslandBoard.Add(CreateIslandTile("Coral Palace"));
-            island.IslandBoard.Add(CreateIslandTile("Crimson Forest"));
+           islandBoard.Add(CreateIslandTile("Cave of Embers"));
+            islandBoard.Add(CreateIslandTile("Cave of Shadows"));
+           islandBoard.Add(CreateIslandTile("Cliffs of Abandon"));
+            islandBoard.Add(CreateIslandTile("Copper Gate",Enum.Enums.PlayerColour.Green));
+           islandBoard.Add(CreateIslandTile("Coral Palace"));
+            islandBoard.Add(CreateIslandTile("Crimson Forest"));
             //D 1
-            island.IslandBoard.Add(CreateIslandTile("Dunes of Deception"));
+            islandBoard.Add(CreateIslandTile("Dunes of Deception"));
             //E
 
             //F 1
-            island.IslandBoard.Add(CreateIslandTile("Fools' Landing", Enum.Enums.PlayerColour.Blue,true));
+            islandBoard.Add(CreateIslandTile("Fools' Landing", Enum.Enums.PlayerColour.Blue,true));
             //G 1
-             island.IslandBoard.Add(CreateIslandTile("Gold Gate", Enum.Enums.PlayerColour.Yellow));
+             islandBoard.Add(CreateIslandTile("Gold Gate", Enum.Enums.PlayerColour.Yellow));
 
             //H 
-             island.IslandBoard.Add(CreateIslandTile("Howling Garden"));
+             islandBoard.Add(CreateIslandTile("Howling Garden"));
 
             //I 1
-             island.IslandBoard.Add(CreateIslandTile("Iron Gate",Enum.Enums.PlayerColour.Black));
+             islandBoard.Add(CreateIslandTile("Iron Gate",Enum.Enums.PlayerColour.Black));
 
             //J
 
             //K
 
             //L 1 
-             island.IslandBoard.Add(CreateIslandTile("Lost Lagoon"));
+             islandBoard.Add(CreateIslandTile("Lost Lagoon"));
 
             //M 1
-             island.IslandBoard.Add(CreateIslandTile("Misty March"));
+             islandBoard.Add(CreateIslandTile("Misty March"));
 
             //N
 
             //O 1
-            island.IslandBoard.Add(CreateIslandTile("Observatory"));
+            islandBoard.Add(CreateIslandTile("Observatory"));
              
 
             //P 1
-             island.IslandBoard.Add(CreateIslandTile("Phantom Rock"));
+             islandBoard.Add(CreateIslandTile("Phantom Rock"));
 
             //Q
 
             //R
 
             //S 1
-            island.IslandBoard.Add(CreateIslandTile("Silver Gate", Enum.Enums.PlayerColour.Grey));
+            islandBoard.Add(CreateIslandTile("Silver Gate", Enum.Enums.PlayerColour.Grey));
             //T 4
-            island.IslandBoard.Add(CreateIslandTile("Temple of the Moon"));
-            island.IslandBoard.Add(CreateIslandTile("Temple of the Sun"));
-            island.IslandBoard.Add(CreateIslandTile("Tidal Palace"));
-            island.IslandBoard.Add(CreateIslandTile("Twilight Hollow"));
+            islandBoard.Add(CreateIslandTile("Temple of the Moon"));
+            islandBoard.Add(CreateIslandTile("Temple of the Sun"));
+            islandBoard.Add(CreateIslandTile("Tidal Palace"));
+            islandBoard.Add(CreateIslandTile("Twilight Hollow"));
             //U
 
             //V
 
             //W 2
-            island.IslandBoard.Add(CreateIslandTile("Watchtower"));
-            island.IslandBoard.Add(CreateIslandTile("Whispering Garden"));
+            islandBoard.Add(CreateIslandTile("Watchtower"));
+            islandBoard.Add(CreateIslandTile("Whispering Garden"));
             //X
 
             //Y
 
             //Z       
 
+            island.IslandBoard = islandBoard.OrderBy(x => Guid.NewGuid()).ToList();
+                      
             return island;
         }
 

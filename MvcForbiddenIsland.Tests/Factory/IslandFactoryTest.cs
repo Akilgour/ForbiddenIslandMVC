@@ -287,12 +287,27 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            //var islandTileCount = island.IslandBoard.Where(x => x.StartingTileForPlayer != Enum.Enums.PlayerColour.None).Count();
-            //Assert.AreEqual(islandTileCount, 6);
             foreach (var islandTile in island.IslandBoard)
             {
                 Assert.AreNotEqual(islandTile.Id, Guid.Empty);
             }
         }
+
+
+        [TestMethod]
+        public void CreateReturnsIslandWithListOfIslandTiles_NotInAlphabeticalOrder_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreNotEqual(island.IslandBoard[0].Name, "Breakers Bridge");
+            Assert.AreNotEqual(island.IslandBoard[1].Name, "Bronze Gate");
+            Assert.AreNotEqual(island.IslandBoard[2].Name, "Cave of Embers");
+
+        }
+
     }
 }
