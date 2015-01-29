@@ -295,7 +295,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
 
         [TestMethod]
-        public void CreateReturnsIslandWithListOfIslandTiles_NotInAlphabeticalOrder_IsValid()
+        public void NotInAlphabeticalOrder_IsValid()
         {
             //Arrange 
             var islandFactory = new IslandFactory();
@@ -303,10 +303,322 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
-            Assert.AreNotEqual(island.IslandBoard[0].Name, "Breakers Bridge");
-            Assert.AreNotEqual(island.IslandBoard[1].Name, "Bronze Gate");
-            Assert.AreNotEqual(island.IslandBoard[2].Name, "Cave of Embers");
+            var zero = (island.IslandBoard[0].Name == "Breakers Bridge");
+             var one = (island.IslandBoard[1].Name == "Bronze Gate");
+             var two =(island.IslandBoard[2].Name == "Cave of Embers");
 
+             Assert.IsFalse((zero && one && two));
+        }
+
+        [TestMethod]
+        public void TileIsAtOneThree_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[0].rowNumber, 1);
+            Assert.AreEqual(island.IslandBoard[0].columnNumber, 3);
+        }
+
+        [TestMethod]
+        public void TileIsAtOneFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[1].rowNumber, 1);
+            Assert.AreEqual(island.IslandBoard[1].columnNumber, 4);
+        }
+
+        [TestMethod]
+        public void TileIsAtTwoTwo_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[2].rowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[2].columnNumber, 2);
+        }
+
+        [TestMethod]
+        public void TileIsAtTwoThree_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[3].rowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[3].columnNumber, 3);
+        }
+
+        [TestMethod]
+        public void TileIsAtTwoFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[4].rowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[4].columnNumber, 4);
+        }
+
+        [TestMethod]
+        public void TileIsAtTwoFive_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[5].rowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[5].columnNumber, 5);
+        }
+
+        [TestMethod]
+        public void TileIsAtThreeOne_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[6].rowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[6].columnNumber, 1);
+        }
+
+        [TestMethod]
+        public void TileIsAtThreeTwo_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[7].rowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[7].columnNumber, 2);
+        }
+
+        [TestMethod]
+        public void TileIsAtThreeThree_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[8].rowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[8].columnNumber, 3);
+        }
+
+        [TestMethod]
+        public void TileIsAtThreeFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[9].rowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[9].columnNumber, 4);
+        }
+
+        [TestMethod]
+        public void TileIsAtThreeFive_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[10].rowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[10].columnNumber, 5);
+        }
+
+        [TestMethod]
+        public void TileIsAtThreeSix_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[11].rowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[11].columnNumber, 6);
+        }
+        [TestMethod]
+        public void TileIsAtFourOne_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[12].rowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[12].columnNumber, 1);
+        }
+
+        [TestMethod]
+        public void TileIsAtFourTwo_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[13].rowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[13].columnNumber, 2);
+        }
+
+        [TestMethod]
+        public void TileIsAtFourThree_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[14].rowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[14].columnNumber, 3);
+        }
+
+        [TestMethod]
+        public void TileIsAtFourFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[15].rowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[15].columnNumber, 4);
+        }
+
+        [TestMethod]
+        public void TileIsAtFourFive_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[16].rowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[16].columnNumber, 5);
+        }
+
+        [TestMethod]
+        public void TileIsAtFourSix_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[17].rowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[17].columnNumber, 6);
+        }
+
+        [TestMethod]
+        public void TileIsAtFiveTwo_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[18].rowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[18].columnNumber, 2);
+        }
+
+        [TestMethod]
+        public void TileIsAtFiveThree_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[19].rowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[19].columnNumber, 3);
+        }
+
+        [TestMethod]
+        public void TileIsAtFiveFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[20].rowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[20].columnNumber, 4);
+        }
+
+        [TestMethod]
+        public void TileIsAtFiveFive_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[21].rowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[21].columnNumber, 5);
+        }
+
+        [TestMethod]
+        public void TileIsAtSixThree_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[22].rowNumber,6);
+            Assert.AreEqual(island.IslandBoard[22].columnNumber, 3);
+        }
+
+        [TestMethod]
+        public void TileIsAtSixFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            Assert.AreEqual(island.IslandBoard[23].rowNumber, 6);
+            Assert.AreEqual(island.IslandBoard[23].columnNumber, 4);
         }
 
     }

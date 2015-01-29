@@ -13,5 +13,7 @@ namespace MvcForbiddenIsland.Models
         public Enum.Enums.TileState SubmergedState { get; set; }
         public Enum.Enums.PlayerColour StartingTileForPlayer { get; set; }
         public bool HelicopterSite { get; set; }
+        public int rowNumber { get; set; }
+        public int columnNumber { get; set; }
     }
 }
