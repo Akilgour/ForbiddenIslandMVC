@@ -122,6 +122,21 @@ namespace MvcForbiddenIsland.Factory
             SetRowAnColumnNumber(island.IslandBoard[22], 6, 3);
             SetRowAnColumnNumber(island.IslandBoard[23], 6, 4);
 
+            island.IslandBoard.Add(CreateSeaTile(1, 1));
+            island.IslandBoard.Add(CreateSeaTile(1, 2));
+            island.IslandBoard.Add(CreateSeaTile(1, 5));
+            island.IslandBoard.Add(CreateSeaTile(1, 6));
+
+            island.IslandBoard.Add(CreateSeaTile(2, 1));
+            island.IslandBoard.Add(CreateSeaTile(2, 6));
+
+            island.IslandBoard.Add(CreateSeaTile(5, 1));
+            island.IslandBoard.Add(CreateSeaTile(5, 6));
+
+            island.IslandBoard.Add(CreateSeaTile(6, 1));
+            island.IslandBoard.Add(CreateSeaTile(6, 2));
+            island.IslandBoard.Add(CreateSeaTile(6, 5));
+            island.IslandBoard.Add(CreateSeaTile(6, 6));
 
             return island;
         }
@@ -153,7 +168,19 @@ namespace MvcForbiddenIsland.Factory
             return islandTile;
         }
 
+        private IslandTile CreateSeaTile(int rowNumber, int columnNumber)
+        {
+            var islandTile = new IslandTile();
+            islandTile.Id = Guid.NewGuid();
+            islandTile.Name = "Sea";
+            islandTile.StartingTileForPlayer = Enum.Enums.PlayerColour.None;
+            islandTile.SubmergedState = Enum.Enums.TileState.Gone;
+            islandTile.HelicopterSite = false;
+            islandTile.rowNumber = rowNumber;
+            islandTile.columnNumber = columnNumber;
 
+            return islandTile;
+        }
     }
 
 
