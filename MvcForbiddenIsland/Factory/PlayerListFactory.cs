@@ -18,7 +18,7 @@ namespace MvcForbiddenIsland.Factory
             playerList.Add(new Player() { Id = Guid.NewGuid(), Name = "Pilot", Colour = Enum.Enums.PlayerColour.Blue, Action = PlayerConstants.PILOT_ACTION });
             playerList.Add(new Player() { Id = Guid.NewGuid(), Name = "Navigator", Colour = Enum.Enums.PlayerColour.Yellow, Action = PlayerConstants.NAVIGATOR_ACTION });
             playerList.Add(new Player() { Id = Guid.NewGuid(), Name = "Engineer", Colour = Enum.Enums.PlayerColour.Red, Action = PlayerConstants.ENGINEER_ACTION });
-            return playerList;
+            return playerList.OrderBy(x => Guid.NewGuid()).ToList();
         }
     }
 }
