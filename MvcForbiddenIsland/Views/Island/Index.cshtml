@@ -7,31 +7,27 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+ 
 <table>
-    <tr>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.IslandBoard)
-    {
-        <tr>
-            <td>
-                @DisplayIslandTile(item)
-            </td>
-        </tr>
-    }
+    @DisplayIslandRow(1)
+    @DisplayIslandRow(2)
+    @DisplayIslandRow(3)
+    @DisplayIslandRow(4)
+    @DisplayIslandRow(5)
+    @DisplayIslandRow(6)
 </table>
 
-@helper DisplayIslandTile(MvcForbiddenIsland.Models.IslandTile islandTile)
+@helper DisplayIslandRow(int i)
 {
-    @islandTile.Id
-    @islandTile.Name
-    @islandTile.StartingTileForPlayer
-    @islandTile.SubmergedState
-    @islandTile.rowNumber
-    @islandTile.columnNumber
-
+    <tr>
+        @foreach (var item in Model.IslandBoard.Where(x => x.rowNumber == i).OrderBy(x => x.columnNumber))
+        {
+            <td>
+                @item.Name
+                @item.StartingTileForPlayer
+                @item.SubmergedState
+            </td>
+        }
+    </tr>
 }
+
