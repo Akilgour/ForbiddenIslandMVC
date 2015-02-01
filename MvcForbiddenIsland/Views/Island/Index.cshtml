@@ -7,7 +7,7 @@
 
 <h2>Index</h2>
 
- 
+
 <table>
     @DisplayIslandRow(1)
     @DisplayIslandRow(2)
@@ -26,6 +26,22 @@
                 @item.Name
                 @item.StartingTileForPlayer
                 @item.SubmergedState
+
+                @item.PlayersOnTile.Count
+
+                @if (item.PlayersOnTile.Count == 0)
+                {
+                    <p> No Player</p>
+                }
+                else
+                {
+                    foreach (var x in item.PlayersOnTile)
+                    {
+                        @x.Name
+                        @x.Colour
+                        @x.Action
+                    }
+                }
             </td>
         }
     </tr>
