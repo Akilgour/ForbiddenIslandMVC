@@ -249,7 +249,21 @@ namespace MvcForbiddenIsland.Tests.Factory
         }
 
         [TestMethod]
-        public void CreateReturnsIslandWithListOfIslandTiles_TilesCountTwentyFour_IsValid()
+        public void  IslandTilesThatAreMottSea_TilesCountTwentyFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            //Assert
+            var islandTileCount = island.IslandBoard.Where(x=> x.Name != "Sea").Count();
+            Assert.AreEqual(islandTileCount, 24);
+        }
+
+        [TestMethod]
+        public void CreateReturnsIslandWithListOfIslandTiles_TilesCountThirtySix_IsValid()
         {
             //Arrange 
             var islandFactory = new IslandFactory();
@@ -259,7 +273,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTileCount = island.IslandBoard.Count();
-            Assert.AreEqual(islandTileCount, 24);
+            Assert.AreEqual(islandTileCount, 36);
         }
 
         [TestMethod]
