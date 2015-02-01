@@ -78,7 +78,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Phantom Rock");
             Assert.AreEqual(islandTile.Name, "Phantom Rock");
         }
-        
+
         [TestMethod]
         public void CreateReturnsIslandWithListOfIslandTiles_PhantomRockNotStartingPostions_IsValid()
         {
@@ -249,7 +249,7 @@ namespace MvcForbiddenIsland.Tests.Factory
         }
 
         [TestMethod]
-        public void  IslandTilesThatAreMottSea_TilesCountTwentyFour_IsValid()
+        public void IslandTilesThatAreMottSea_TilesCountTwentyFour_IsValid()
         {
             //Arrange 
             var islandFactory = new IslandFactory();
@@ -258,7 +258,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var islandTileCount = island.IslandBoard.Where(x=> x.Name != "Sea").Count();
+            var islandTileCount = island.IslandBoard.Where(x => x.Name != "Sea").Count();
             Assert.AreEqual(islandTileCount, 24);
         }
 
@@ -318,10 +318,11 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             var zero = (island.IslandBoard[0].Name == "Breakers Bridge");
-             var one = (island.IslandBoard[1].Name == "Bronze Gate");
-             var two =(island.IslandBoard[2].Name == "Cave of Embers");
+            var one = (island.IslandBoard[1].Name == "Bronze Gate");
+            var two = (island.IslandBoard[2].Name == "Cave of Embers");
 
-             Assert.IsFalse((zero && one && two));
+            //Assert
+            Assert.IsFalse((zero && one && two));
         }
 
         [TestMethod]
@@ -333,6 +334,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[0].rowNumber, 1);
             Assert.AreEqual(island.IslandBoard[0].columnNumber, 3);
         }
@@ -346,6 +348,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[1].rowNumber, 1);
             Assert.AreEqual(island.IslandBoard[1].columnNumber, 4);
         }
@@ -359,6 +362,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[2].rowNumber, 2);
             Assert.AreEqual(island.IslandBoard[2].columnNumber, 2);
         }
@@ -372,6 +376,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[3].rowNumber, 2);
             Assert.AreEqual(island.IslandBoard[3].columnNumber, 3);
         }
@@ -385,6 +390,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[4].rowNumber, 2);
             Assert.AreEqual(island.IslandBoard[4].columnNumber, 4);
         }
@@ -398,6 +404,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[5].rowNumber, 2);
             Assert.AreEqual(island.IslandBoard[5].columnNumber, 5);
         }
@@ -411,6 +418,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[6].rowNumber, 3);
             Assert.AreEqual(island.IslandBoard[6].columnNumber, 1);
         }
@@ -424,6 +432,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[7].rowNumber, 3);
             Assert.AreEqual(island.IslandBoard[7].columnNumber, 2);
         }
@@ -437,6 +446,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[8].rowNumber, 3);
             Assert.AreEqual(island.IslandBoard[8].columnNumber, 3);
         }
@@ -450,6 +460,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[9].rowNumber, 3);
             Assert.AreEqual(island.IslandBoard[9].columnNumber, 4);
         }
@@ -463,6 +474,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[10].rowNumber, 3);
             Assert.AreEqual(island.IslandBoard[10].columnNumber, 5);
         }
@@ -476,6 +488,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[11].rowNumber, 3);
             Assert.AreEqual(island.IslandBoard[11].columnNumber, 6);
         }
@@ -488,6 +501,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[12].rowNumber, 4);
             Assert.AreEqual(island.IslandBoard[12].columnNumber, 1);
         }
@@ -501,6 +515,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[13].rowNumber, 4);
             Assert.AreEqual(island.IslandBoard[13].columnNumber, 2);
         }
@@ -514,6 +529,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[14].rowNumber, 4);
             Assert.AreEqual(island.IslandBoard[14].columnNumber, 3);
         }
@@ -527,6 +543,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[15].rowNumber, 4);
             Assert.AreEqual(island.IslandBoard[15].columnNumber, 4);
         }
@@ -540,6 +557,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[16].rowNumber, 4);
             Assert.AreEqual(island.IslandBoard[16].columnNumber, 5);
         }
@@ -553,6 +571,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[17].rowNumber, 4);
             Assert.AreEqual(island.IslandBoard[17].columnNumber, 6);
         }
@@ -566,6 +585,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[18].rowNumber, 5);
             Assert.AreEqual(island.IslandBoard[18].columnNumber, 2);
         }
@@ -579,6 +599,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[19].rowNumber, 5);
             Assert.AreEqual(island.IslandBoard[19].columnNumber, 3);
         }
@@ -592,6 +613,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[20].rowNumber, 5);
             Assert.AreEqual(island.IslandBoard[20].columnNumber, 4);
         }
@@ -605,6 +627,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[21].rowNumber, 5);
             Assert.AreEqual(island.IslandBoard[21].columnNumber, 5);
         }
@@ -618,7 +641,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
-            Assert.AreEqual(island.IslandBoard[22].rowNumber,6);
+            //Assert
+            Assert.AreEqual(island.IslandBoard[22].rowNumber, 6);
             Assert.AreEqual(island.IslandBoard[22].columnNumber, 3);
         }
 
@@ -631,8 +655,90 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Act 
             var island = islandFactory.Create();
 
+            //Assert
             Assert.AreEqual(island.IslandBoard[23].rowNumber, 6);
             Assert.AreEqual(island.IslandBoard[23].columnNumber, 4);
+        }
+
+        [TestMethod]
+        public void PlayersOnTileNotNull_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+
+            //Assert
+            foreach (var asdf in island.IslandBoard)
+            {
+                Assert.AreNotEqual(asdf.PlayersOnTile, null);
+
+            }
+        }
+
+
+
+        [TestMethod]
+        public void PlayerCountIsFour_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+            var playersTiles = island.IslandBoard.Where(x => x.PlayersOnTile.Count != 0).Count();
+
+            //Assert
+            Assert.AreEqual(playersTiles, 4);
+        }
+
+        [TestMethod]
+        public void PlayerCountIsSix_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+            var playersTiles = island.IslandBoard.Where(x => x.PlayersOnTile.Count != 0).Count();
+
+            //Assert
+            Assert.AreNotEqual(playersTiles, 6);
+        }
+
+        [TestMethod]
+        public void PlayerOnStartingTile_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+            var playersTiles = island.IslandBoard.Where(x => x.PlayersOnTile.Count != 0);
+
+            //Assert
+            foreach (var item in playersTiles)
+            {
+                Assert.AreEqual(item.StartingTileForPlayer, item.PlayersOnTile[0].Colour);
+            }
+        }
+
+        [TestMethod]
+        public void TileHasOnePlayer_IsValid()
+        {
+            //Arrange 
+            var islandFactory = new IslandFactory();
+
+            //Act 
+            var island = islandFactory.Create();
+            var playersTiles = island.IslandBoard.Where(x => x.PlayersOnTile.Count != 0);
+
+            //Assert
+            foreach (var item in playersTiles)
+            {
+                Assert.AreEqual(item.PlayersOnTile.Count, 1);
+            }
         }
 
     }

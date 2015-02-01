@@ -138,6 +138,12 @@ namespace MvcForbiddenIsland.Factory
             island.IslandBoard.Add(CreateSeaTile(6, 5));
             island.IslandBoard.Add(CreateSeaTile(6, 6));
 
+            var playerListFactory = new PlayerListFactory();
+            var playerList = playerListFactory.Create();
+            for (int i = 0; i <= 3; i++)
+            {
+                island.IslandBoard.Single(x => x.StartingTileForPlayer == playerList[i].Colour).PlayersOnTile.Add(playerList[i]);
+            }
             return island;
         }
 
@@ -165,6 +171,7 @@ namespace MvcForbiddenIsland.Factory
             islandTile.StartingTileForPlayer = startingTileForPlayer;
             islandTile.SubmergedState = Enum.Enums.TileState.Normal;
             islandTile.HelicopterSite = helicopterSite;
+            islandTile.PlayersOnTile = new List<Player>();
             return islandTile;
         }
 
@@ -178,7 +185,7 @@ namespace MvcForbiddenIsland.Factory
             islandTile.HelicopterSite = false;
             islandTile.rowNumber = rowNumber;
             islandTile.columnNumber = columnNumber;
-
+            islandTile.PlayersOnTile = new List<Player>();
             return islandTile;
         }
     }

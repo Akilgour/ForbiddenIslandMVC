@@ -16,5 +16,6 @@ namespace MvcForbiddenIsland.Models.Interface
         bool HelicopterSite { get; set; }
         int rowNumber { get; set; }
         int columnNumber { get; set; }
+        List<Player> PlayersOnTile { get; set; }
     }
 }
