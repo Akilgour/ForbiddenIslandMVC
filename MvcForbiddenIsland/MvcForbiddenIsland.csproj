@@ -193,8 +193,10 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Interface\IIsland.cs" />
     <Compile Include="Models\Interface\IIslandTile.cs" />
+    <Compile Include="Models\Interface\IPlayer.cs" />
     <Compile Include="Models\Island.cs" />
     <Compile Include="Models\IslandTile.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
