@@ -5,7 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript" language="javascript">
+    function onSubmitButtonClick(id, ida) {
+        $("#textbox1").val(id);
+        $("#textbox2").val(ida);
+    }
+</script>
+
 <h2>Index</h2>
+@Html.ActionLink("link caption", "actionName", "Island", new { reportID = 1 });
+
+<p>
+    @Html.TextBox("textbox1") @Html.TextBox("textbox2")
+</p>
+
+<p>
+    @Html.TextBox("textbox3") @Html.TextBox("textbo4")
+</p>
+
+<p>
+    @Html.TextBox("textbox5") @Html.TextBox("textbox6")
+</p>
 
 
 <table>
@@ -20,9 +40,11 @@
 @helper DisplayIslandRow(int i)
 {
     <tr>
+
+
         @foreach (var item in Model.IslandBoard.Where(x => x.rowNumber == i).OrderBy(x => x.columnNumber))
         {
-            <td>
+            <td onclick="onSubmitButtonClick(@item.rowNumber,@item.columnNumber)">
                 @item.Name
                 @item.StartingTileForPlayer
                 @item.SubmergedState
