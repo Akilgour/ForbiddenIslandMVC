@@ -6,21 +6,35 @@
 }
 
 <script type="text/javascript" language="javascript">
-    function onSubmitButtonClick(id, ida) {
-        $("#textbox1").val(id);
-        $("#textbox2").val(ida);
+    function onSubmitButtonClick(rowNumber, columnNumber) 
+    {
+
+        if ($("#textbox1").val() == "")
+        {
+            $("#textbox1").val(rowNumber);
+            $("#textbox2").val(columnNumber);
+        }
+        else if ($("#textbox3").val() == "")
+        {
+            $("#textbox3").val(rowNumber);
+            $("#textbox4").val(columnNumber);
+        }
+        else if ($("#textbox5").val() == "")
+        {
+            $("#textbox5").val(rowNumber);
+            $("#textbox6").val(columnNumber);
+        }
     }
 </script>
 
 <h2>Index</h2>
-@Html.ActionLink("link caption", "actionName", "Island", new { reportID = 1 });
 
 <p>
     @Html.TextBox("textbox1") @Html.TextBox("textbox2")
 </p>
 
 <p>
-    @Html.TextBox("textbox3") @Html.TextBox("textbo4")
+    @Html.TextBox("textbox3") @Html.TextBox("textbox4")
 </p>
 
 <p>
