@@ -147,6 +147,14 @@ namespace MvcForbiddenIsland.Factory
             return island;
         }
 
+        internal Island Create(List<IslandTile> islandTileList)
+        {
+            var island = new Island();
+            island.IslandBoard = islandTileList;
+            return island;
+        }
+
+
         private static void SetRowAnColumnNumber(IslandTile islandTile, int rowNumber, int columnNumber)
         {
             islandTile.columnNumber = columnNumber;
@@ -188,6 +196,8 @@ namespace MvcForbiddenIsland.Factory
             islandTile.PlayersOnTile = new List<Player>();
             return islandTile;
         }
+
+      
     }
 
 

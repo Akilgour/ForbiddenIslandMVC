@@ -1,7 +1,10 @@
-﻿using MvcForbiddenIsland.Factory;
+﻿using MvcForbiddenIsland.DAL;
+using MvcForbiddenIsland.Factory;
+using MvcForbiddenIsland.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,15 +15,49 @@ namespace MvcForbiddenIsland.Controllers
         //
         // GET: /Island/
 
+        private ForbiddenIslandContext db = new ForbiddenIslandContext();
+
+
         public ActionResult Index()
         {
+            //var islandFactory = new IslandFactory();
+            //Island island;
+
+            //island = islandFactory.Create();
+
+            //var islandTileList = db.IslandTile.ToList();
+            //foreach (var islandTile in islandTileList)
+            //{
+            //    db.IslandTile.Remove(islandTile);
+            //}
+
+            //foreach (var item in island.IslandBoard)
+            //{
+            //      db.IslandTile.Add(item);
+            //}
+
+             var islandTileList = db.IslandTile.ToList();
+             var playerList = db.Player.ToList();
+
             var islandFactory = new IslandFactory();
+            Island island;
+
+            island = islandFactory.Create(islandTileList);
+
 
             
-            var island = islandFactory.Create();
-
             return View(island);
         }
+
+
+        // [HttpPost]
+        //public ActionResult Index()
+        //{
+        //   Island island = ViewBag.Island;
+
+        //    return View(island);
+        //}
+ 
 
     //    //
     //    // GET: /Island/Details/5
@@ -32,11 +69,54 @@ namespace MvcForbiddenIsland.Controllers
 
     //    //
     //    // GET: /Island/Create
+     //  
+        [HttpPost]
+        public ActionResult SelectRateBand(string id)
+        {
+            //Some code here
+            return View();
+        }
 
-    //    public ActionResult Create()
-    //    {
-    //        return View();
-    //    }
+        public ActionResult Create(int Rowid, int Columnid)
+        {
+        return View();
+        }
+
+        public ActionResult Create(int Rowid )
+        {
+            return View();
+        }
+
+
+        public ActionResult Create()
+        {
+            return View();               
+        }
+
+        [HttpPost]
+        public void SubmitTimesheet()
+        {
+
+            string uri = "";
+
+            //foreach (var billingCode in model.BillingCodes)
+            //{
+            //    //do stuff with each of these
+            //}
+        }
+
+
+
+        [HttpPost]
+        public ActionResult CalculateSimpleInterestResult()
+        {
+            var islandFactory = new IslandFactory();
+
+
+            var island = islandFactory.Create();
+
+            return View(island);
+        }
 
     //    //
     //    // POST: /Island/Create
