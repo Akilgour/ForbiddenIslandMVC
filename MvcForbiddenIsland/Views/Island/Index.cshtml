@@ -6,40 +6,33 @@
 }
 
 <script type="text/javascript" language="javascript">
-    function onSubmitButtonClick(rowNumber, columnNumber) 
+    function onSubmitButtonClick(rowNumber) 
     {
 
         if ($("#textbox1").val() == "")
         {
-            $("#textbox1").val(rowNumber);
-            $("#textbox2").val(columnNumber);
+            $("#textbox1").val(rowNumber);        
+        }
+        else if ($("#textbox2").val() == "")
+        {
+            $("#textbox2").val(rowNumber);          
         }
         else if ($("#textbox3").val() == "")
         {
-            $("#textbox3").val(rowNumber);
-            $("#textbox4").val(columnNumber);
-        }
-        else if ($("#textbox5").val() == "")
-        {
-            $("#textbox5").val(rowNumber);
-            $("#textbox6").val(columnNumber);
+            $("#textbox3").val(rowNumber);     
         }
     }
+
+
 </script>
 
 <h2>Index</h2>
 
 <p>
-    @Html.TextBox("textbox1") @Html.TextBox("textbox2")
+    @Html.TextBox("textbox1") @Html.TextBox("textbox2") @Html.TextBox("textbox3")
 </p>
 
-<p>
-    @Html.TextBox("textbox3") @Html.TextBox("textbox4")
-</p>
 
-<p>
-    @Html.TextBox("textbox5") @Html.TextBox("textbox6")
-</p>
 
 
 <table>
@@ -51,6 +44,17 @@
     @DisplayIslandRow(6)
 </table>
 
+@Html.ActionLink("Go to the island ", "Index", "Island", new { one = 1 });
+
+
+
+
+
+
+
+
+
+
 @helper DisplayIslandRow(int i)
 {
     <tr>
@@ -58,27 +62,27 @@
 
         @foreach (var item in Model.IslandBoard.Where(x => x.rowNumber == i).OrderBy(x => x.columnNumber))
         {
-            <td onclick="onSubmitButtonClick(@item.rowNumber,@item.columnNumber)">
-                @item.Name
-                @item.StartingTileForPlayer
-                @item.SubmergedState
+    <td onclick="onSubmitButtonClick('@item.Id')">
+        @item.Name
+        @item.StartingTileForPlayer
+        @item.SubmergedState
 
-                @item.PlayersOnTile.Count
+        @*@item.PlayersOnTile.Count*@
 
-                @if (item.PlayersOnTile.Count == 0)
+        @if ( (item.PlayersOnTile == null)  || (item.PlayersOnTile.Count == 0))
                 {
-                    <p> No Player</p>
+            <p> No Player</p>
                 }
                 else
                 {
                     foreach (var x in item.PlayersOnTile)
                     {
-                        @x.Name
-                        @x.Colour
-                        @x.Action
+            @x.Name
+            @x.Colour
+            @x.Action
                     }
                 }
-            </td>
+    </td>
         }
     </tr>
 }
