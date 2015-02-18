@@ -29,7 +29,17 @@ namespace MvcForbiddenIsland.Controllers
         public ActionResult Index(Island island)
         {
             var islandFactory = new IslandFactory();
-            ModelState.Clear();// This clears the models on the view
+            //ModelState.Clear();// This clears the models on the view
+
+            ModelState.AddModelError("MoveOne", "MoveOne No validation for this");
+            ModelState.AddModelError("MoveTwo", "MoveTwo No validation for this");
+            ModelState.AddModelError("MoveThree", "MoveThree No validation for this");
+
+            if (ModelState.IsValid)
+            {
+                ModelState.Clear();
+            }
+
             Island newIsland = islandFactory.Create(db.IslandTile.ToList());
             return View(newIsland);
         }
