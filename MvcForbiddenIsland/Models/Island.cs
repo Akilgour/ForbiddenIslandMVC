@@ -9,5 +9,10 @@ namespace MvcForbiddenIsland.Models
     public class Island : IIsland
     {
         public List<IslandTile> IslandBoard{get; set;}
+
+        public Guid MoveOne { get; set; }
+        public Guid MoveTwo { get; set; }
+        public Guid MoveThree { get; set; }
+
     }
 }

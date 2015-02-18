@@ -6,20 +6,15 @@
 }
 
 <script type="text/javascript" language="javascript">
-    function onSubmitButtonClick(rowNumber) 
-    {
-
-        if ($("#textbox1").val() == "")
-        {
-            $("#textbox1").val(rowNumber);        
+    function onSubmitButtonClick(rowNumber) {
+        if ($("#MoveOne").val() == "00000000-0000-0000-0000-000000000000") {
+            $("#MoveOne").val(rowNumber);
         }
-        else if ($("#textbox2").val() == "")
-        {
-            $("#textbox2").val(rowNumber);          
+        else if ($("#MoveTwo").val() == "00000000-0000-0000-0000-000000000000") {
+            $("#MoveTwo").val(rowNumber);
         }
-        else if ($("#textbox3").val() == "")
-        {
-            $("#textbox3").val(rowNumber);     
+        else if ($("#MoveThree").val() == "00000000-0000-0000-0000-000000000000") {
+            $("#MoveThree").val(rowNumber);
         }
     }
 
@@ -28,61 +23,61 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.TextBox("textbox1") @Html.TextBox("textbox2") @Html.TextBox("textbox3")
-</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
 
+    <fieldset>
+        <p>
+            @Html.EditorFor(model => model.MoveOne)
+            @Html.EditorFor(model => model.MoveTwo)
+            @Html.EditorFor(model => model.MoveThree)
+        </p>
 
+        <table>
+            @DisplayIslandRow(1)
+            @DisplayIslandRow(2)
+            @DisplayIslandRow(3)
+            @DisplayIslandRow(4)
+            @DisplayIslandRow(5)
+            @DisplayIslandRow(6)
+        </table>
 
+        <p>
+            <input type="submit" value="Save" />
+        </p>
 
-<table>
-    @DisplayIslandRow(1)
-    @DisplayIslandRow(2)
-    @DisplayIslandRow(3)
-    @DisplayIslandRow(4)
-    @DisplayIslandRow(5)
-    @DisplayIslandRow(6)
-</table>
-
-@Html.ActionLink("Go to the island ", "Index", "Island", new { one = 1 });
-
-
-
-
-
-
-
-
+    </fieldset>
+}
 
 
 @helper DisplayIslandRow(int i)
 {
     <tr>
-
-
         @foreach (var item in Model.IslandBoard.Where(x => x.rowNumber == i).OrderBy(x => x.columnNumber))
         {
-    <td onclick="onSubmitButtonClick('@item.Id')">
-        @item.Name
-        @item.StartingTileForPlayer
-        @item.SubmergedState
+            <td onclick="onSubmitButtonClick('@item.Id')">
+                @item.Name
+                @item.StartingTileForPlayer
+                @item.SubmergedState
 
-        @*@item.PlayersOnTile.Count*@
+                @*@item.PlayersOnTile.Count*@
 
-        @if ( (item.PlayersOnTile == null)  || (item.PlayersOnTile.Count == 0))
+                @if ((item.PlayersOnTile == null) || (item.PlayersOnTile.Count == 0))
                 {
-            <p> No Player</p>
+                    <p> No Player</p>
                 }
                 else
                 {
                     foreach (var x in item.PlayersOnTile)
                     {
-            @x.Name
-            @x.Colour
-            @x.Action
+                        @x.Name
+                        @x.Colour
+                        @x.Action
                     }
                 }
-    </td>
+            </td>
         }
     </tr>
 }

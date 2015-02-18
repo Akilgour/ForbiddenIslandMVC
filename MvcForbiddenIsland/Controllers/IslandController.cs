@@ -20,34 +20,43 @@ namespace MvcForbiddenIsland.Controllers
 
         public ActionResult Index()
         {
-            //var islandFactory = new IslandFactory();
-            //Island island;
-
-            //island = islandFactory.Create();
-
-            //var islandTileList = db.IslandTile.ToList();
-            //foreach (var islandTile in islandTileList)
-            //{
-            //    db.IslandTile.Remove(islandTile);
-            //}
-
-            //foreach (var item in island.IslandBoard)
-            //{
-            //      db.IslandTile.Add(item);
-            //}
-
-             var islandTileList = db.IslandTile.ToList();
-             var playerList = db.Player.ToList();
-
             var islandFactory = new IslandFactory();
-            Island island;
-
-            island = islandFactory.Create(islandTileList);
-
-
-            
+            Island island = islandFactory.Create(db.IslandTile.ToList());            
             return View(island);
         }
+
+        [HttpPost]
+        public ActionResult Index(Island island)
+        {
+            var islandFactory = new IslandFactory();
+            ModelState.Clear();// This clears the models on the view
+            Island newIsland = islandFactory.Create(db.IslandTile.ToList());
+            return View(newIsland);
+        }
+
+        //public ActionResult IndexE()
+        //{
+
+        //    var islandTileList = db.IslandTile.ToList();
+        //    var playerList = db.Player.ToList();
+
+        //    var islandFactory = new IslandFactory();
+        //    Island island;
+
+        //    island = islandFactory.Create(islandTileList);
+
+
+
+        //    return View(island);
+        //}
+        //[HttpPost]
+        //public ActionResult IndexE(Island island)
+        //{
+
+        //    return View(island);
+        //}
+
+
 
 
         // [HttpPost]
