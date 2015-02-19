@@ -29,14 +29,32 @@ namespace MvcForbiddenIsland.Controllers
         public ActionResult Index(Island island)
         {
             var islandFactory = new IslandFactory();
-            //ModelState.Clear();// This clears the models on the view
 
-            ModelState.AddModelError("MoveOne", "MoveOne No validation for this");
-            ModelState.AddModelError("MoveTwo", "MoveTwo No validation for this");
-            ModelState.AddModelError("MoveThree", "MoveThree No validation for this");
+            if (island.MoveOne == Guid.Empty)
+            {
+                ModelState.AddModelError("MoveOne", "MoveOne not selected");
+            }
+
+            if (island.MoveTwo == Guid.Empty)
+            {
+                ModelState.AddModelError("MoveTwo", "MoveTwo not selected");
+            }
+
+            if (island.MoveThree == Guid.Empty)
+            {
+                ModelState.AddModelError("MoveThree", "MoveThree not selected");
+            }
+
+            
+
 
             if (ModelState.IsValid)
             {
+                var startingTile = db.IslandTile.Where(x => x.Id == island.CurrentPlayerId).Single();
+                var firstMoveTile = db.IslandTile.Where(x => x.Id == island.MoveOne).Single();
+                var secondMoveTile = db.IslandTile.Where(x => x.Id == island.MoveTwo).Single();
+                var thirdMoveTile = db.IslandTile.Where(x => x.Id == island.MoveThree).Single();
+
                 ModelState.Clear();
             }
 
@@ -116,7 +134,7 @@ namespace MvcForbiddenIsland.Controllers
         public void SubmitTimesheet()
         {
 
-            string uri = "";
+           // string uri = "";
 
             //foreach (var billingCode in model.BillingCodes)
             //{

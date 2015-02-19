@@ -151,6 +151,11 @@ namespace MvcForbiddenIsland.Factory
         {
             var island = new Island();
             island.IslandBoard = islandTileList;
+
+ 
+
+            island.CurrentPlayerId = new Guid("427a22bd-b13e-4f8b-ae89-13c51bb67f2c");// Temp place holder will make current player always be Engingeer
+
             return island;
         }
 

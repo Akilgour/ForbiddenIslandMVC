@@ -14,5 +14,6 @@ namespace MvcForbiddenIsland.Models
         public Guid MoveTwo { get; set; }
         public Guid MoveThree { get; set; }
 
+        public Guid CurrentPlayerId { get; set; }
     }
 }
