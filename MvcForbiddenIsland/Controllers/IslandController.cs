@@ -20,8 +20,13 @@ namespace MvcForbiddenIsland.Controllers
 
         public ActionResult Index()
         {
+            var islandTileList = db.IslandTile.ToList();
+
+            var playerList = db.Player.ToList();
+        
+
             var islandFactory = new IslandFactory();
-            Island island = islandFactory.Create(db.IslandTile.ToList());            
+            Island island = islandFactory.Create(islandTileList );            
             return View(island);
         }
 
@@ -29,6 +34,15 @@ namespace MvcForbiddenIsland.Controllers
         public ActionResult Index(Island island)
         {
             var islandFactory = new IslandFactory();
+
+
+          //  var aa = db.Player.ToList();
+
+            //ModelState.Clear();// This clears the models on the view
+
+           // ModelState.AddModelError("MoveOne", "MoveOne No validation for this");
+            //ModelState.AddModelError("MoveTwo", "MoveTwo No validation for this");
+            //ModelState.AddModelError("MoveThree", "MoveThree No validation for this");
 
             if (island.MoveOne == Guid.Empty)
             {
@@ -50,15 +64,15 @@ namespace MvcForbiddenIsland.Controllers
 
             if (ModelState.IsValid)
             {
-                var startingTile = db.IslandTile.Where(x => x.Id == island.CurrentPlayerId).Single();
+               // var startingTile = db.IslandTile.Where(x => x. == island.CurrentPlayerId).Single();
                 var firstMoveTile = db.IslandTile.Where(x => x.Id == island.MoveOne).Single();
                 var secondMoveTile = db.IslandTile.Where(x => x.Id == island.MoveTwo).Single();
                 var thirdMoveTile = db.IslandTile.Where(x => x.Id == island.MoveThree).Single();
 
                 ModelState.Clear();
             }
-
-            Island newIsland = islandFactory.Create(db.IslandTile.ToList());
+            var islandTileList = db.IslandTile.ToList();
+            Island newIsland = islandFactory.Create(islandTileList);
             return View(newIsland);
         }
 
