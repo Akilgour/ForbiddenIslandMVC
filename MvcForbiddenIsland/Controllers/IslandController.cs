@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.DAL;
+﻿using InversionOfControl;
+using MvcForbiddenIsland.DAL;
 using MvcForbiddenIsland.Factory;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Validation.CanMove;
@@ -72,24 +73,20 @@ namespace MvcForbiddenIsland.Controllers
 
                 ModelState.Clear();
 
+                var ioc = new IOC();
+                var canMoveValidationList = ioc.GetList<ICanMoveValidation>().ToList();
+                ValidationResults validationResults;
 
-
-                var columnOneSpace = new CanMove_ColumnOneSpace();
-                var rowOneSpace = new CanMove_RowOneSpace();
-
-                var columnOneSpaceIsValid = columnOneSpace.IsValid(firstMoveTile, secondMoveTile, new Player());
-
-                if (!columnOneSpaceIsValid.IsValid)
+                foreach (var canMoveValidation in canMoveValidationList)
                 {
-                    ModelState.AddModelError("MoveOne", columnOneSpaceIsValid.ErrorMessage);
+                    validationResults = canMoveValidation.IsValid(firstMoveTile, secondMoveTile, new Player());
+                    if (!validationResults.IsValid)
+                    {
+                        ModelState.AddModelError("",validationResults.ErrorMessage);
+                    }
                 }
 
-                var rowOneSpaceIsValid = rowOneSpace.IsValid(firstMoveTile, secondMoveTile, new Player());
-
-                if (!rowOneSpaceIsValid.IsValid)
-                {
-                    ModelState.AddModelError("MoveOne", rowOneSpaceIsValid.ErrorMessage);
-                }
+        
             }
             var islandTileList = db.IslandTile.ToList();
             Island newIsland = islandFactory.Create(islandTileList);
