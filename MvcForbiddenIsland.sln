@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcForbiddenIsland", "MvcFo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcForbiddenIsland.Tests", "MvcForbiddenIsland.Tests\MvcForbiddenIsland.Tests.csproj", "{28E0F55A-072D-45CE-9E8D-F2954BC20E5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InversionOfControl", "InversionOfControl\InversionOfControl.csproj", "{B1A1A2E4-C795-474F-B4C6-D16DF15CFCF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{28E0F55A-072D-45CE-9E8D-F2954BC20E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28E0F55A-072D-45CE-9E8D-F2954BC20E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28E0F55A-072D-45CE-9E8D-F2954BC20E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1A1A2E4-C795-474F-B4C6-D16DF15CFCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1A1A2E4-C795-474F-B4C6-D16DF15CFCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1A1A2E4-C795-474F-B4C6-D16DF15CFCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1A1A2E4-C795-474F-B4C6-D16DF15CFCF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
