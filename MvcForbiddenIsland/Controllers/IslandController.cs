@@ -1,6 +1,7 @@
 ﻿using MvcForbiddenIsland.DAL;
 using MvcForbiddenIsland.Factory;
 using MvcForbiddenIsland.Models;
+using MvcForbiddenIsland.Validation.CanMove;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,17 +60,36 @@ namespace MvcForbiddenIsland.Controllers
                 ModelState.AddModelError("MoveThree", "MoveThree not selected");
             }
 
-            
+
 
 
             if (ModelState.IsValid)
             {
-               // var startingTile = db.IslandTile.Where(x => x. == island.CurrentPlayerId).Single();
+                // var startingTile = db.IslandTile.Where(x => x. == island.CurrentPlayerId).Single();
                 var firstMoveTile = db.IslandTile.Where(x => x.Id == island.MoveOne).Single();
                 var secondMoveTile = db.IslandTile.Where(x => x.Id == island.MoveTwo).Single();
                 var thirdMoveTile = db.IslandTile.Where(x => x.Id == island.MoveThree).Single();
 
                 ModelState.Clear();
+
+
+
+                var columnOneSpace = new CanMove_ColumnOneSpace();
+                var rowOneSpace = new CanMove_RowOneSpace();
+
+                var columnOneSpaceIsValid = columnOneSpace.IsValid(firstMoveTile, secondMoveTile, new Player());
+
+                if (!columnOneSpaceIsValid.IsValid)
+                {
+                    ModelState.AddModelError("MoveOne", columnOneSpaceIsValid.ErrorMessage);
+                }
+
+                var rowOneSpaceIsValid = rowOneSpace.IsValid(firstMoveTile, secondMoveTile, new Player());
+
+                if (!rowOneSpaceIsValid.IsValid)
+                {
+                    ModelState.AddModelError("MoveOne", rowOneSpaceIsValid.ErrorMessage);
+                }
             }
             var islandTileList = db.IslandTile.ToList();
             Island newIsland = islandFactory.Create(islandTileList);

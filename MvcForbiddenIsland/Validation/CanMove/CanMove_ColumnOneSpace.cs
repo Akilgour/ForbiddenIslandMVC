@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MvcForbiddenIsland.Validation.CanMove.Interface
+namespace MvcForbiddenIsland.Validation.CanMove
 {
     public class CanMove_ColumnOneSpace : ICanMoveValidation
     {
