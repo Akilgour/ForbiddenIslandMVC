@@ -5,8 +5,9 @@ using System.Web;
 
 namespace MvcForbiddenIsland.Models
 {
-    public class GamePlaySettings
+    public class GamePlaySettings    
     {
+        public Guid Id { get; set; }
         public Guid fistMovePlayerId { get; set; }
         public Guid secondMovePlayerId { get; set; }
         public Guid thirdMovePlayerId { get; set; }
