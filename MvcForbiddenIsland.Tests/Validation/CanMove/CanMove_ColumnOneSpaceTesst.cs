@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Constants;
-using MvcForbiddenIsland.Validation.CanMove.Interface;
+using MvcForbiddenIsland.Validation.CanMove;
 
 namespace MvcForbiddenIsland.Tests.Validation.CanMove
 {
