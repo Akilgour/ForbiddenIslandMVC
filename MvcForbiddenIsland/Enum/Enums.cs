@@ -24,5 +24,17 @@ namespace MvcForbiddenIsland.Enum
             Grey,
             None
         }
+
+        public enum TreasureCardType
+        {
+            EarthStone,
+            StatueOfTheWind,
+            CrystalOfFire,
+            OceansChalice,
+            WaterRises,
+            HelicopterLift,
+            SandBags,
+
+        }
     }
 }
