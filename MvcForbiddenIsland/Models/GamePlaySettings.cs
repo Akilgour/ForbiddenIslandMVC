@@ -13,5 +13,6 @@ namespace MvcForbiddenIsland.Models
         public Guid ThirdMovePlayerId { get; set; }
         public Guid FourthMovePlayerId { get; set; }
         public int MoveNumber { get; set; }
+        public int WaterLevelMarker { get; set; }
     }
 }
