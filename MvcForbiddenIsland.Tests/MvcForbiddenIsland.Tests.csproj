@@ -121,6 +121,7 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Validation\CanMove\CanMove_ColumnOneSpaceTesst.cs" />
     <Compile Include="Validation\CanMove\CanMove_RowOneSpaceTest.cs" />
+    <Compile Include="Validation\CanWin\CanWin_AllAtFoolsLandingTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

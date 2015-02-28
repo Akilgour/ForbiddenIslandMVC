@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MvcForbiddenIsland.Constants
 {
-   public static class PlayerConstants
+    public static class PlayerConstants
     {
         public static string MESSENGER_ACTION = "Give Treasure card to a player anywhere on the island for 1 action per card.";
         public static string EXPLORER_ACTION = "Move and/or short up diagonally.";
@@ -13,6 +13,13 @@ namespace MvcForbiddenIsland.Constants
         public static string PILOT_ACTION = "Once per turn, fly to any tile on the island for 1 action.";
         public static string NAVIGATOR_ACTION = "Move another player up to 2 adjacent tiles for 1 action.";
         public static string ENGINEER_ACTION = "Shore up 2 tiles for 1 action.";
+
+        public static string MESSENGER_NAME = "Messenger";
+        public static string EXPLORER_NAME = "Explorer";
+        public static string DIVER_NAME = "Diver";
+        public static string PILOT_NAME = "Pilot";
+        public static string NAVIGATOR_NAME = "Navigator";
+        public static string ENGINEER_NAME = "Engineer";
 
     }
 }

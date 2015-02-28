@@ -8,6 +8,6 @@ namespace MvcForbiddenIsland.Validation.CanWin.Interface
 {
     public interface ICanWin
     {
-        ValidationResults CanWin(IslandTile FoolsLanding, Player PlayerOne, Player PlayerTwo, Player PlayerThree, Player PlayerFour);
+        ValidationResults CanWin(IslandTile FoolsLanding);
     }
 }
