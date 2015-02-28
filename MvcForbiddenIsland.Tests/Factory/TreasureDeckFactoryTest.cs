@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using MvcForbiddenIsland.Models;
 using System.Linq;
 using MvcForbiddenIsland.Constants;
+using MvcForbiddenIsland.Enum;
 
 namespace MvcForbiddenIsland.Tests.Factory
 {
@@ -32,7 +33,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var hasCard = deckList.Any(x => x.TreasureCardType == Enum.Enums.TreasureCardType.SandBags);
+            var hasCard = deckList.Any(x => x.TreasureCardType == TreasureCardType.SandBags);
 
             //Assert
             Assert.IsTrue(hasCard);
@@ -46,14 +47,14 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var card = deckList.FirstOrDefault(x => x.TreasureCardType == Enum.Enums.TreasureCardType.SandBags);
+            var card = deckList.FirstOrDefault(x => x.TreasureCardType == TreasureCardType.SandBags);
 
             //Assert
             Assert.AreNotEqual(card.Id, Guid.Empty);
             Assert.AreEqual(card.Name, CardConstants.SANDBAG_NAME);
             Assert.AreEqual(card.Description, CardConstants.SANDBAG_DESCRIPTION);
             Assert.AreEqual(card.Action, CardConstants.SANDBAG_ACTION);
-            Assert.AreEqual(card.TreasureCardType, Enum.Enums.TreasureCardType.SandBags);
+            Assert.AreEqual(card.TreasureCardType, TreasureCardType.SandBags);
         }
 
         [TestMethod]
@@ -64,7 +65,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var cardCount = deckList.Count(x => x.TreasureCardType == Enum.Enums.TreasureCardType.SandBags);
+            var cardCount = deckList.Count(x => x.TreasureCardType == TreasureCardType.SandBags);
 
             //Assert
             Assert.AreEqual(cardCount, 2);
@@ -78,7 +79,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var hasCard = deckList.Any(x => x.TreasureCardType == Enum.Enums.TreasureCardType.HelicopterLift);
+            var hasCard = deckList.Any(x => x.TreasureCardType == TreasureCardType.HelicopterLift);
 
             //Assert
             Assert.IsTrue(hasCard);
@@ -92,14 +93,14 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var card = deckList.FirstOrDefault(x => x.TreasureCardType == Enum.Enums.TreasureCardType.HelicopterLift);
+            var card = deckList.FirstOrDefault(x => x.TreasureCardType == TreasureCardType.HelicopterLift);
 
             //Assert
             Assert.AreNotEqual(card.Id, Guid.Empty);
             Assert.AreEqual(card.Name, CardConstants.HELICOPTERLIFT_NAME);
             Assert.AreEqual(card.Description, CardConstants.HELICOPTERLIFT_DESCRIPTION);
             Assert.AreEqual(card.Action, CardConstants.HELICOPTERLIFT_ACTION);
-            Assert.AreEqual(card.TreasureCardType, Enum.Enums.TreasureCardType.HelicopterLift);
+            Assert.AreEqual(card.TreasureCardType, TreasureCardType.HelicopterLift);
         }
 
         [TestMethod]
@@ -110,7 +111,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var cardCount = deckList.Count(x => x.TreasureCardType == Enum.Enums.TreasureCardType.HelicopterLift);
+            var cardCount = deckList.Count(x => x.TreasureCardType == TreasureCardType.HelicopterLift);
 
             //Assert
             Assert.AreEqual(cardCount, 3);
@@ -124,7 +125,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var hasCard = deckList.Any(x => x.TreasureCardType == Enum.Enums.TreasureCardType.WaterRises);
+            var hasCard = deckList.Any(x => x.TreasureCardType == TreasureCardType.WaterRises);
 
             //Assert
             Assert.IsTrue(hasCard);
@@ -138,14 +139,14 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var card = deckList.FirstOrDefault(x => x.TreasureCardType == Enum.Enums.TreasureCardType.WaterRises);
+            var card = deckList.FirstOrDefault(x => x.TreasureCardType == TreasureCardType.WaterRises);
 
             //Assert
             Assert.AreNotEqual(card.Id, Guid.Empty);
             Assert.AreEqual(card.Name, CardConstants.WATERRISE_NAME);
             Assert.AreEqual(card.Description, CardConstants.WATERRISE_DESCRIPTION);
             Assert.AreEqual(card.Action, CardConstants.WATERRISE_ACTION);
-            Assert.AreEqual(card.TreasureCardType, Enum.Enums.TreasureCardType.WaterRises);
+            Assert.AreEqual(card.TreasureCardType, TreasureCardType.WaterRises);
         }
 
         [TestMethod]
@@ -156,7 +157,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var cardCount = deckList.Count(x => x.TreasureCardType == Enum.Enums.TreasureCardType.WaterRises);
+            var cardCount = deckList.Count(x => x.TreasureCardType == TreasureCardType.WaterRises);
 
             //Assert
             Assert.AreEqual(cardCount, 3);
@@ -170,7 +171,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var hasCard = deckList.Any(x => x.TreasureCardType == Enum.Enums.TreasureCardType.OceansChalice);
+            var hasCard = deckList.Any(x => x.TreasureCardType == TreasureCardType.OceansChalice);
 
             //Assert
             Assert.IsTrue(hasCard);
@@ -184,14 +185,14 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var card = deckList.FirstOrDefault(x => x.TreasureCardType == Enum.Enums.TreasureCardType.OceansChalice);
+            var card = deckList.FirstOrDefault(x => x.TreasureCardType == TreasureCardType.OceansChalice);
 
             //Assert
             Assert.AreNotEqual(card.Id, Guid.Empty);
             Assert.AreEqual(card.Name, CardConstants.OCEANS_CHALICE_NAME);
             Assert.AreEqual(card.Description, "");
             Assert.AreEqual(card.Action, "");
-            Assert.AreEqual(card.TreasureCardType, Enum.Enums.TreasureCardType.OceansChalice);
+            Assert.AreEqual(card.TreasureCardType, TreasureCardType.OceansChalice);
         }
 
         [TestMethod]
@@ -202,7 +203,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var cardCount = deckList.Count(x => x.TreasureCardType == Enum.Enums.TreasureCardType.OceansChalice);
+            var cardCount = deckList.Count(x => x.TreasureCardType == TreasureCardType.OceansChalice);
 
             //Assert
             Assert.AreEqual(cardCount, 5);
@@ -216,7 +217,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var hasCard = deckList.Any(x => x.TreasureCardType == Enum.Enums.TreasureCardType.CrystalOfFire);
+            var hasCard = deckList.Any(x => x.TreasureCardType == TreasureCardType.CrystalOfFire);
 
             //Assert
             Assert.IsTrue(hasCard);
@@ -230,14 +231,14 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var card = deckList.FirstOrDefault(x => x.TreasureCardType == Enum.Enums.TreasureCardType.CrystalOfFire);
+            var card = deckList.FirstOrDefault(x => x.TreasureCardType == TreasureCardType.CrystalOfFire);
 
             //Assert
             Assert.AreNotEqual(card.Id, Guid.Empty);
             Assert.AreEqual(card.Name, CardConstants.CRYSTAL_OF_FIRE_NAME);
             Assert.AreEqual(card.Description, "");
             Assert.AreEqual(card.Action, "");
-            Assert.AreEqual(card.TreasureCardType, Enum.Enums.TreasureCardType.CrystalOfFire);
+            Assert.AreEqual(card.TreasureCardType, TreasureCardType.CrystalOfFire);
         }
 
         [TestMethod]
@@ -248,7 +249,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var cardCount = deckList.Count(x => x.TreasureCardType == Enum.Enums.TreasureCardType.CrystalOfFire);
+            var cardCount = deckList.Count(x => x.TreasureCardType == TreasureCardType.CrystalOfFire);
 
             //Assert
             Assert.AreEqual(cardCount, 5);
@@ -262,7 +263,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var hasCard = deckList.Any(x => x.TreasureCardType == Enum.Enums.TreasureCardType.StatueOfTheWind);
+            var hasCard = deckList.Any(x => x.TreasureCardType == TreasureCardType.StatueOfTheWind);
 
             //Assert
             Assert.IsTrue(hasCard);
@@ -276,14 +277,14 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var card = deckList.FirstOrDefault(x => x.TreasureCardType == Enum.Enums.TreasureCardType.StatueOfTheWind);
+            var card = deckList.FirstOrDefault(x => x.TreasureCardType == TreasureCardType.StatueOfTheWind);
 
             //Assert
             Assert.AreNotEqual(card.Id, Guid.Empty);
             Assert.AreEqual(card.Name, CardConstants.STATUE_OF_THE_WIND_NAME);
             Assert.AreEqual(card.Description, "");
             Assert.AreEqual(card.Action, "");
-            Assert.AreEqual(card.TreasureCardType, Enum.Enums.TreasureCardType.StatueOfTheWind);
+            Assert.AreEqual(card.TreasureCardType, TreasureCardType.StatueOfTheWind);
         }
 
         [TestMethod]
@@ -294,7 +295,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var cardCount = deckList.Count(x => x.TreasureCardType == Enum.Enums.TreasureCardType.StatueOfTheWind);
+            var cardCount = deckList.Count(x => x.TreasureCardType == TreasureCardType.StatueOfTheWind);
 
             //Assert
             Assert.AreEqual(cardCount, 5);
@@ -309,7 +310,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var hasCard = deckList.Any(x => x.TreasureCardType == Enum.Enums.TreasureCardType.EarthStone);
+            var hasCard = deckList.Any(x => x.TreasureCardType == TreasureCardType.EarthStone);
 
             //Assert
             Assert.IsTrue(hasCard);
@@ -323,14 +324,14 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var card = deckList.FirstOrDefault(x => x.TreasureCardType == Enum.Enums.TreasureCardType.EarthStone);
+            var card = deckList.FirstOrDefault(x => x.TreasureCardType == TreasureCardType.EarthStone);
 
             //Assert
             Assert.AreNotEqual(card.Id, Guid.Empty);
             Assert.AreEqual(card.Name, CardConstants.EARTH_STONE_NAME);
             Assert.AreEqual(card.Description, "");
             Assert.AreEqual(card.Action, "");
-            Assert.AreEqual(card.TreasureCardType, Enum.Enums.TreasureCardType.EarthStone);
+            Assert.AreEqual(card.TreasureCardType, TreasureCardType.EarthStone);
         }
 
         [TestMethod]
@@ -341,7 +342,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Act 
             var deckList = factory.Create();
-            var cardCount = deckList.Count(x => x.TreasureCardType == Enum.Enums.TreasureCardType.EarthStone);
+            var cardCount = deckList.Count(x => x.TreasureCardType == TreasureCardType.EarthStone);
 
             //Assert
             Assert.AreEqual(cardCount, 5);

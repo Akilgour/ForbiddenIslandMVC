@@ -1,4 +1,5 @@
 ﻿using MvcForbiddenIsland.Constants;
+using MvcForbiddenIsland.Enum;
 using MvcForbiddenIsland.Models;
 using System;
 using System.Collections.Generic;
@@ -54,37 +55,37 @@ namespace MvcForbiddenIsland.Factory
 
         private TreasureCard CreateSandBagCard()
         {
-            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.SANDBAG_NAME, Description = CardConstants.SANDBAG_DESCRIPTION, Action = CardConstants.SANDBAG_ACTION, TreasureCardType = Enum.Enums.TreasureCardType.SandBags };
+            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.SANDBAG_NAME, Description = CardConstants.SANDBAG_DESCRIPTION, Action = CardConstants.SANDBAG_ACTION, TreasureCardType = TreasureCardType.SandBags };
         }
 
         private TreasureCard CreateHelicopterLiftCard()
         {
-            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.HELICOPTERLIFT_NAME, Description = CardConstants.HELICOPTERLIFT_DESCRIPTION, Action = CardConstants.HELICOPTERLIFT_ACTION, TreasureCardType = Enum.Enums.TreasureCardType.HelicopterLift };
+            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.HELICOPTERLIFT_NAME, Description = CardConstants.HELICOPTERLIFT_DESCRIPTION, Action = CardConstants.HELICOPTERLIFT_ACTION, TreasureCardType = TreasureCardType.HelicopterLift };
         }
 
         private TreasureCard CreateWaterRiseCard()
         {
-            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.WATERRISE_NAME, Description = CardConstants.WATERRISE_DESCRIPTION, Action = CardConstants.WATERRISE_ACTION, TreasureCardType = Enum.Enums.TreasureCardType.WaterRises };
+            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.WATERRISE_NAME, Description = CardConstants.WATERRISE_DESCRIPTION, Action = CardConstants.WATERRISE_ACTION, TreasureCardType = TreasureCardType.WaterRises };
         }
 
         private TreasureCard CreateOceansChaliceCard()
         {
-            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.OCEANS_CHALICE_NAME, Description = "", Action = "", TreasureCardType = Enum.Enums.TreasureCardType.OceansChalice };
+            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.OCEANS_CHALICE_NAME, Description = "", Action = "", TreasureCardType = TreasureCardType.OceansChalice };
         }
 
         private TreasureCard CreateCrystalOfFireCard()
         {
-            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.CRYSTAL_OF_FIRE_NAME, Description = "", Action = "", TreasureCardType = Enum.Enums.TreasureCardType.CrystalOfFire };
+            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.CRYSTAL_OF_FIRE_NAME, Description = "", Action = "", TreasureCardType = TreasureCardType.CrystalOfFire };
         }
 
         private TreasureCard CreateStatueOfTheWindCard()
         {
-            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.STATUE_OF_THE_WIND_NAME, Description = "", Action = "", TreasureCardType = Enum.Enums.TreasureCardType.StatueOfTheWind };
+            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.STATUE_OF_THE_WIND_NAME, Description = "", Action = "", TreasureCardType = TreasureCardType.StatueOfTheWind };
         }
 
         private TreasureCard CreateEarthStoneCard()
         {
-            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.EARTH_STONE_NAME, Description = "", Action = "", TreasureCardType = Enum.Enums.TreasureCardType.EarthStone };
+            return new TreasureCard() { Id = Guid.NewGuid(), Name = CardConstants.EARTH_STONE_NAME, Description = "", Action = "", TreasureCardType = TreasureCardType.EarthStone };
         }
     }
 }

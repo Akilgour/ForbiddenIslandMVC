@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcForbiddenIsland.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,8 @@ namespace MvcForbiddenIsland.Models.Interface
     {
         Guid Id { get; set; }
         string Name { get; set; }
-        MvcForbiddenIsland.Enum.Enums.TileState SubmergedState { get; set; }
-        MvcForbiddenIsland.Enum.Enums.PlayerColour StartingTileForPlayer { get; set; }
+        TileState SubmergedState { get; set; }
+        PlayerColour StartingTileForPlayer { get; set; }
         bool HelicopterSite { get; set; }
         int rowNumber { get; set; }
         int columnNumber { get; set; }

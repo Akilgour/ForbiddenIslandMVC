@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcForbiddenIsland.Models;
 using System.Collections.Generic;
 using MvcForbiddenIsland.Factory;
+using MvcForbiddenIsland.Enum;
 
 namespace MvcForbiddenIsland.Tests.Factory
 {
@@ -36,7 +37,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Assert
             foreach (var card in treasureCardDeck)
             {
-                Assert.AreEqual(card.DeckTheCardIsIn, Enum.Enums.TeasureCardDeckId.DrawDeck);
+                Assert.AreEqual(card.DeckTheCardIsIn, TeasureCardDeckId.DrawDeck);
             }
         }
 

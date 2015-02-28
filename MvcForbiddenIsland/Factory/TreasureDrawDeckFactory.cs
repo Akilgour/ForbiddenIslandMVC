@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Models;
+﻿using MvcForbiddenIsland.Enum;
+using MvcForbiddenIsland.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace MvcForbiddenIsland.Factory
         {
             foreach (var card in treasureCardList)
             {
-                card.DeckTheCardIsIn = Enum.Enums.TeasureCardDeckId.DrawDeck;
+                card.DeckTheCardIsIn = TeasureCardDeckId.DrawDeck;
             }
             return treasureCardList;
         }

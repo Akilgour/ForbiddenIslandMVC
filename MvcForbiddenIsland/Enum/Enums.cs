@@ -5,8 +5,7 @@ using System.Web;
 
 namespace MvcForbiddenIsland.Enum
 {
-    public class Enums
-    {
+  
         public enum TileState
         {
             Normal,
@@ -45,5 +44,5 @@ namespace MvcForbiddenIsland.Enum
             PlayerThreeDeck,
             PlayerFourDeck,
         }
-    }
+ 
 }

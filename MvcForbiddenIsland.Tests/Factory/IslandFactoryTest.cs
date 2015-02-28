@@ -5,6 +5,7 @@ using MvcForbiddenIsland.Models.Interface;
 using System.Collections.Generic;
 using MvcForbiddenIsland.Models;
 using System.Linq;
+using MvcForbiddenIsland.Enum;
 
 namespace MvcForbiddenIsland.Tests.Factory
 {
@@ -90,7 +91,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Phantom Rock");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, Enum.Enums.PlayerColour.None);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.None);
         }
 
         [TestMethod]
@@ -146,7 +147,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Silver Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, Enum.Enums.PlayerColour.Grey);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Grey);
         }
 
         [TestMethod]
@@ -174,7 +175,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Fools' Landing");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, Enum.Enums.PlayerColour.Blue);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Blue);
         }
 
 
@@ -203,7 +204,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Gold Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, Enum.Enums.PlayerColour.Yellow);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Yellow);
         }
 
         [TestMethod]
@@ -217,7 +218,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Iron Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, Enum.Enums.PlayerColour.Black);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Black);
         }
 
         [TestMethod]
@@ -231,7 +232,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Bronze Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, Enum.Enums.PlayerColour.Red);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Red);
         }
 
         [TestMethod]
@@ -245,7 +246,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Copper Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, Enum.Enums.PlayerColour.Green);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Green);
         }
 
         [TestMethod]
@@ -286,7 +287,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var islandTileCount = island.IslandBoard.Where(x => x.StartingTileForPlayer != Enum.Enums.PlayerColour.None).Count();
+            var islandTileCount = island.IslandBoard.Where(x => x.StartingTileForPlayer != PlayerColour.None).Count();
             Assert.AreEqual(islandTileCount, 6);
         }
 

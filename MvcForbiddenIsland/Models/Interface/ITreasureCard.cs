@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcForbiddenIsland.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,8 @@ namespace MvcForbiddenIsland.Models.Interface
         string Name { get; set; }
         string Description { get; set; }
         string Action { get; set; }
-        MvcForbiddenIsland.Enum.Enums.TreasureCardType TreasureCardType { get; set; }
+        TreasureCardType TreasureCardType { get; set; }
         int Order { get; set; }
-        MvcForbiddenIsland.Enum.Enums.TeasureCardDeckId DeckTheCardIsIn { get; set; }
+        TeasureCardDeckId DeckTheCardIsIn { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using MvcForbiddenIsland.Factory;
 using MvcForbiddenIsland.Models;
 using System.Linq;
 using MvcForbiddenIsland.Constants;
+using MvcForbiddenIsland.Enum;
 
 namespace MvcForbiddenIsland.Tests.Factory
 {
@@ -54,7 +55,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Messenger");
 
             //Assert
-            Assert.AreEqual(item.Colour, Enum.Enums.PlayerColour.Grey);
+            Assert.AreEqual(item.Colour, PlayerColour.Grey);
             Assert.AreEqual(item.Action, PlayerConstants.MESSENGER_ACTION);
             Assert.AreEqual(item.Name, "Messenger");
         }
@@ -71,7 +72,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Explorer");
 
             //Assert
-            Assert.AreEqual(item.Colour, Enum.Enums.PlayerColour.Green);
+            Assert.AreEqual(item.Colour, PlayerColour.Green);
             Assert.AreEqual(item.Action, PlayerConstants.EXPLORER_ACTION);
             Assert.AreEqual(item.Name, "Explorer");
         }
@@ -88,7 +89,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Diver");
 
             //Assert
-            Assert.AreEqual(item.Colour, Enum.Enums.PlayerColour.Black);
+            Assert.AreEqual(item.Colour, PlayerColour.Black);
             Assert.AreEqual(item.Action, PlayerConstants.DIVER_ACTION);
             Assert.AreEqual(item.Name, "Diver");
         }
@@ -105,7 +106,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Pilot");
 
             //Assert
-            Assert.AreEqual(item.Colour, Enum.Enums.PlayerColour.Blue);
+            Assert.AreEqual(item.Colour, PlayerColour.Blue);
             Assert.AreEqual(item.Action, PlayerConstants.PILOT_ACTION);
             Assert.AreEqual(item.Name, "Pilot");
         }
@@ -122,7 +123,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Navigator");
 
             //Assert
-            Assert.AreEqual(item.Colour, Enum.Enums.PlayerColour.Yellow);
+            Assert.AreEqual(item.Colour, PlayerColour.Yellow);
             Assert.AreEqual(item.Action, PlayerConstants.NAVIGATOR_ACTION);
             Assert.AreEqual(item.Name, "Navigator");
         }
@@ -139,7 +140,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Engineer");
 
             //Assert
-            Assert.AreEqual(item.Colour, Enum.Enums.PlayerColour.Red);
+            Assert.AreEqual(item.Colour, PlayerColour.Red);
             Assert.AreEqual(item.Action, PlayerConstants.ENGINEER_ACTION);
             Assert.AreEqual(item.Name, "Engineer");
         }

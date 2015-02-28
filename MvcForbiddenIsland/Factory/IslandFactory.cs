@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Models;
+﻿using MvcForbiddenIsland.Enum;
+using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Models.Interface;
 using System;
 using System.Collections.Generic;
@@ -22,13 +23,13 @@ namespace MvcForbiddenIsland.Factory
 
             //B 2
             islandBoard.Add(CreateIslandTile("Breakers Bridge"));
-            islandBoard.Add(CreateIslandTile("Bronze Gate", Enum.Enums.PlayerColour.Red));
+            islandBoard.Add(CreateIslandTile("Bronze Gate", PlayerColour.Red));
 
             //C 6
             islandBoard.Add(CreateIslandTile("Cave of Embers"));
             islandBoard.Add(CreateIslandTile("Cave of Shadows"));
             islandBoard.Add(CreateIslandTile("Cliffs of Abandon"));
-            islandBoard.Add(CreateIslandTile("Copper Gate", Enum.Enums.PlayerColour.Green));
+            islandBoard.Add(CreateIslandTile("Copper Gate", PlayerColour.Green));
             islandBoard.Add(CreateIslandTile("Coral Palace"));
             islandBoard.Add(CreateIslandTile("Crimson Forest"));
             //D 1
@@ -36,15 +37,15 @@ namespace MvcForbiddenIsland.Factory
             //E
 
             //F 1
-            islandBoard.Add(CreateIslandTile("Fools' Landing", Enum.Enums.PlayerColour.Blue, true));
+            islandBoard.Add(CreateIslandTile("Fools' Landing", PlayerColour.Blue, true));
             //G 1
-            islandBoard.Add(CreateIslandTile("Gold Gate", Enum.Enums.PlayerColour.Yellow));
+            islandBoard.Add(CreateIslandTile("Gold Gate", PlayerColour.Yellow));
 
             //H 
             islandBoard.Add(CreateIslandTile("Howling Garden"));
 
             //I 1
-            islandBoard.Add(CreateIslandTile("Iron Gate", Enum.Enums.PlayerColour.Black));
+            islandBoard.Add(CreateIslandTile("Iron Gate", PlayerColour.Black));
 
             //J
 
@@ -70,7 +71,7 @@ namespace MvcForbiddenIsland.Factory
             //R
 
             //S 1
-            islandBoard.Add(CreateIslandTile("Silver Gate", Enum.Enums.PlayerColour.Grey));
+            islandBoard.Add(CreateIslandTile("Silver Gate", PlayerColour.Grey));
             //T 4
             islandBoard.Add(CreateIslandTile("Temple of the Moon"));
             islandBoard.Add(CreateIslandTile("Temple of the Sun"));
@@ -168,21 +169,21 @@ namespace MvcForbiddenIsland.Factory
 
         private IslandTile CreateIslandTile(string tileName)
         {
-            return CreateIslandTile(tileName, Enum.Enums.PlayerColour.None, false);
+            return CreateIslandTile(tileName, PlayerColour.None, false);
         }
 
-        private IslandTile CreateIslandTile(string tileName, Enum.Enums.PlayerColour startingTileForPlayer)
+        private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer)
         {
             return CreateIslandTile(tileName, startingTileForPlayer, false);
         }
 
-        private IslandTile CreateIslandTile(string tileName, Enum.Enums.PlayerColour startingTileForPlayer, bool helicopterSite)
+        private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer, bool helicopterSite)
         {
             var islandTile = new IslandTile();
             islandTile.Id = Guid.NewGuid();
             islandTile.Name = tileName;
             islandTile.StartingTileForPlayer = startingTileForPlayer;
-            islandTile.SubmergedState = Enum.Enums.TileState.Normal;
+            islandTile.SubmergedState = TileState.Normal;
             islandTile.HelicopterSite = helicopterSite;
             islandTile.PlayersOnTile = new List<Player>();
             return islandTile;
@@ -193,8 +194,8 @@ namespace MvcForbiddenIsland.Factory
             var islandTile = new IslandTile();
             islandTile.Id = Guid.NewGuid();
             islandTile.Name = "Sea";
-            islandTile.StartingTileForPlayer = Enum.Enums.PlayerColour.None;
-            islandTile.SubmergedState = Enum.Enums.TileState.Gone;
+            islandTile.StartingTileForPlayer = PlayerColour.None;
+            islandTile.SubmergedState = TileState.Gone;
             islandTile.HelicopterSite = false;
             islandTile.rowNumber = rowNumber;
             islandTile.columnNumber = columnNumber;
