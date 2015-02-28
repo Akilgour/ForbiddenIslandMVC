@@ -12,5 +12,6 @@ namespace MvcForbiddenIsland.Models
         public string Name { get; set; }
         public string Action { get; set; }
         public Enum.Enums.PlayerColour Colour { get; set; }
+        public Enum.Enums.TeasureCardDeckId PlayerHandId { get; set; }
     }
 }

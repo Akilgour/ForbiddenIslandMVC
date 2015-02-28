@@ -14,5 +14,6 @@ namespace MvcForbiddenIsland.Models.Interface
         string Action { get; set; }
         MvcForbiddenIsland.Enum.Enums.TreasureCardType TreasureCardType { get; set; }
         int Order { get; set; }
+        MvcForbiddenIsland.Enum.Enums.TeasureCardDeckId DeckTheCardIsIn { get; set; }
     }
 }

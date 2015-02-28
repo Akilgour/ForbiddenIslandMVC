@@ -34,7 +34,16 @@ namespace MvcForbiddenIsland.Enum
             WaterRises,
             HelicopterLift,
             SandBags,
+        }
 
+        public enum TeasureCardDeckId
+        {
+            DrawDeck,
+            DiscardDeck,
+            PlayerOneDeck,
+            PlayerTwoDeck,
+            PlayerThreeDeck,
+            PlayerFourDeck,
         }
     }
 }

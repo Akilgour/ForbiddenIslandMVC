@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MvcForbiddenIsland.Constants
 {
-   public static class WaterLevelConstants : Controller
+   public static class WaterLevelConstants
     {
        public static int MAX_LEVEL = 6;
     }
