@@ -116,6 +116,7 @@
     <Compile Include="Factory\IslandFactoryTest.cs" />
     <Compile Include="Factory\PlayerListFactroyTest.cs" />
     <Compile Include="Factory\TreasureDeckFactoryTest.cs" />
+    <Compile Include="Factory\TreasureDrawDeckFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Validation\CanMove\CanMove_ColumnOneSpaceTesst.cs" />

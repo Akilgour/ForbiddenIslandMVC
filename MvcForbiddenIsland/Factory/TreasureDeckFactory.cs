@@ -48,7 +48,7 @@ namespace MvcForbiddenIsland.Factory
             treasureCardList.Add(CreateEarthStoneCard());
             treasureCardList.Add(CreateEarthStoneCard());
 
-            return treasureCardList;
+            return treasureCardList.OrderBy(x => Guid.NewGuid()).ToList();
 
         }
 

@@ -361,5 +361,30 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Assert
             Assert.AreEqual(28, deckList.Count);
         }
+
+        /// <summary>
+        /// Okay this test know the last 5 created are EarthStone cards, but since of the randomse they should not be
+        /// </summary>
+        [TestMethod]
+        public void Last5NotEarthStoneTreasureCards_IsValid()
+        {
+            //Arrange 
+            var factory = new TreasureDeckFactory();
+
+            //Act 
+            var deckList = factory.Create();
+
+
+            //Assert
+            var cardOne = deckList.ElementAt(27).Name ==  CardConstants.EARTH_STONE_NAME;
+            var cardTwo = deckList.ElementAt(26).Name == CardConstants.EARTH_STONE_NAME;
+            var cardThree = deckList.ElementAt(25).Name == CardConstants.EARTH_STONE_NAME;
+            var cardFour = deckList.ElementAt(24).Name == CardConstants.EARTH_STONE_NAME;
+            var cardFive = deckList.ElementAt(23).Name == CardConstants.EARTH_STONE_NAME;
+
+            var asdf = (cardOne && cardTwo && cardThree && cardFour && cardFive);
+            Assert.IsFalse(asdf);
+
+        }
     }
 }
