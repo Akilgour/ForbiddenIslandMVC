@@ -16,9 +16,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
             //Arrange 
             var canWin = new CanWin_AtFoolsLanding();
             var islandTile = new IslandTile();
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
   
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.IsInstanceOfType(result, typeof(ValidationResults));
@@ -31,9 +32,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
             var canWin = new CanWin_AtFoolsLanding();
             var islandTile = new IslandTile();
             islandTile.HelicopterSite = true;
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
 
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, true);
@@ -46,9 +48,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
             var canWin = new CanWin_AtFoolsLanding();
             var islandTile = new IslandTile();
             islandTile.HelicopterSite = false;
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
 
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, false);

@@ -18,9 +18,9 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
             var islandTile = new IslandTile();
             islandTile.PlayersOnTile = new List<Player>();
             var playerList = new List<Player>();
-
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.IsInstanceOfType(result, typeof(ValidationResults));
@@ -49,9 +49,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
             var playerList = new List<Player>();
             var diver = new Player() { Name = PlayerConstants.DIVER_NAME };
             islandTile.PlayersOnTile.Add(diver);
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
 
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, false);
@@ -72,9 +73,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             islandTile.PlayersOnTile.Add(diver);
             islandTile.PlayersOnTile.Add(messenger);
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
 
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, false);
@@ -97,9 +99,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
             islandTile.PlayersOnTile.Add(diver);
             islandTile.PlayersOnTile.Add(messenger);
             islandTile.PlayersOnTile.Add(explorer);
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
 
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, false);
@@ -124,9 +127,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
             islandTile.PlayersOnTile.Add(messenger);
             islandTile.PlayersOnTile.Add(explorer);
             islandTile.PlayersOnTile.Add(pilot);
+            List<TreasureCard> treasureCards = new List<TreasureCard>();
 
             //Act 
-            var result = canWin.CanWin(islandTile);
+            var result = canWin.CanWin(islandTile, treasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, true);

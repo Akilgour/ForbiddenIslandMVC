@@ -123,6 +123,7 @@
     <Compile Include="Validation\CanMove\CanMove_RowOneSpaceTest.cs" />
     <Compile Include="Validation\CanWin\CanWin_AllAtFoolsLandingTest.cs" />
     <Compile Include="Validation\CanWin\CanWin_AtFoolsLandingTest.cs" />
+    <Compile Include="Validation\CanWin\CanWin_OnePlayerHasHelicopterCard_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

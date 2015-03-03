@@ -11,7 +11,7 @@ namespace MvcForbiddenIsland.Validation.CanWin
     public class CanWin_AllAtFoolsLanding : ICanWin
     {
 
-        public Models.ValidationResults CanWin(IslandTile FoolsLanding)
+        public Models.ValidationResults CanWin(IslandTile FoolsLanding, List<TreasureCard> TreasureCards)
         {
 
             if (FoolsLanding.PlayersOnTile.Count != 4)
