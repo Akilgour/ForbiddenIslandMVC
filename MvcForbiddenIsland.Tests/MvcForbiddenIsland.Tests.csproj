@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factory\IslandFactoryTest.cs" />
+    <Compile Include="Factory\IslandFactoryTreasureStatueTest.cs" />
     <Compile Include="Factory\PlayerListFactroyTest.cs" />
     <Compile Include="Factory\TreasureDeckFactoryTest.cs" />
     <Compile Include="Factory\TreasureDrawDeckFactoryTest.cs" />

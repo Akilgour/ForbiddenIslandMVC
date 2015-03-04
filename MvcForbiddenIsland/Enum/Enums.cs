@@ -44,5 +44,13 @@ namespace MvcForbiddenIsland.Enum
             PlayerThreeDeck,
             PlayerFourDeck,
         }
- 
+
+        public enum TreasureStatue
+        {
+            EarthStone,
+            StatueOfTheWind,
+            CrystalOfFire,
+            OceansChalice,
+            None,
+        }
 }

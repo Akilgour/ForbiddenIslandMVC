@@ -26,11 +26,11 @@ namespace MvcForbiddenIsland.Factory
             islandBoard.Add(CreateIslandTile("Bronze Gate", PlayerColour.Red));
 
             //C 6
-            islandBoard.Add(CreateIslandTile("Cave of Embers"));
-            islandBoard.Add(CreateIslandTile("Cave of Shadows"));
+            islandBoard.Add(CreateIslandTile("Cave of Embers", TreasureStatue.CrystalOfFire));
+            islandBoard.Add(CreateIslandTile("Cave of Shadows", TreasureStatue.CrystalOfFire));
             islandBoard.Add(CreateIslandTile("Cliffs of Abandon"));
             islandBoard.Add(CreateIslandTile("Copper Gate", PlayerColour.Green));
-            islandBoard.Add(CreateIslandTile("Coral Palace"));
+            islandBoard.Add(CreateIslandTile("Coral Palace", TreasureStatue.OceansChalice));
             islandBoard.Add(CreateIslandTile("Crimson Forest"));
             //D 1
             islandBoard.Add(CreateIslandTile("Dunes of Deception"));
@@ -42,7 +42,7 @@ namespace MvcForbiddenIsland.Factory
             islandBoard.Add(CreateIslandTile("Gold Gate", PlayerColour.Yellow));
 
             //H 
-            islandBoard.Add(CreateIslandTile("Howling Garden"));
+            islandBoard.Add(CreateIslandTile("Howling Garden", TreasureStatue.StatueOfTheWind));
 
             //I 1
             islandBoard.Add(CreateIslandTile("Iron Gate", PlayerColour.Black));
@@ -73,9 +73,9 @@ namespace MvcForbiddenIsland.Factory
             //S 1
             islandBoard.Add(CreateIslandTile("Silver Gate", PlayerColour.Grey));
             //T 4
-            islandBoard.Add(CreateIslandTile("Temple of the Moon"));
-            islandBoard.Add(CreateIslandTile("Temple of the Sun"));
-            islandBoard.Add(CreateIslandTile("Tidal Palace"));
+            islandBoard.Add(CreateIslandTile("Temple of the Moon", TreasureStatue.EarthStone));
+            islandBoard.Add(CreateIslandTile("Temple of the Sun", TreasureStatue.EarthStone));
+            islandBoard.Add(CreateIslandTile("Tidal Palace", TreasureStatue.OceansChalice));
             islandBoard.Add(CreateIslandTile("Twilight Hollow"));
             //U
 
@@ -83,7 +83,7 @@ namespace MvcForbiddenIsland.Factory
 
             //W 2
             islandBoard.Add(CreateIslandTile("Watchtower"));
-            islandBoard.Add(CreateIslandTile("Whispering Garden"));
+            islandBoard.Add(CreateIslandTile("Whispering Garden", TreasureStatue.StatueOfTheWind));
             //X
 
             //Y
@@ -91,6 +91,12 @@ namespace MvcForbiddenIsland.Factory
             //Z       
 
             island.IslandBoard = islandBoard.OrderBy(x => Guid.NewGuid()).ToList();
+
+            //Since the list has been randomised by the above order, line i just set the firt item it find that can have a status and set it to have a staute
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.StatueOfTheWind).HasStatus = true;
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.CrystalOfFire).HasStatus = true;
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.EarthStone).HasStatus = true;
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.OceansChalice).HasStatus = true;
 
 
             SetRowAnColumnNumber(island.IslandBoard[0], 1, 3);
@@ -169,15 +175,24 @@ namespace MvcForbiddenIsland.Factory
 
         private IslandTile CreateIslandTile(string tileName)
         {
-            return CreateIslandTile(tileName, PlayerColour.None, false);
+            return CreateIslandTile(tileName, PlayerColour.None, false, TreasureStatue.None, false);
+        }
+
+        private IslandTile CreateIslandTile(string tileName, TreasureStatue TreasureStatue)
+        {
+            return CreateIslandTile(tileName, PlayerColour.None, false, TreasureStatue, false);
         }
 
         private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer)
         {
-            return CreateIslandTile(tileName, startingTileForPlayer, false);
+            return CreateIslandTile(tileName, startingTileForPlayer, false, TreasureStatue.None, false);
         }
 
-        private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer, bool helicopterSite)
+         private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer, bool helicopterSite)
+        {
+            return CreateIslandTile(tileName, startingTileForPlayer, helicopterSite, TreasureStatue.None, false);
+        }
+        private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer, bool helicopterSite, TreasureStatue TreasureStatue, bool HasStatus  )
         {
             var islandTile = new IslandTile();
             islandTile.Id = Guid.NewGuid();
@@ -186,6 +201,8 @@ namespace MvcForbiddenIsland.Factory
             islandTile.SubmergedState = TileState.Normal;
             islandTile.HelicopterSite = helicopterSite;
             islandTile.PlayersOnTile = new List<Player>();
+            islandTile.CanHaveStatue = TreasureStatue;
+            islandTile.HasStatus = HasStatus;
             return islandTile;
         }
 
@@ -200,6 +217,8 @@ namespace MvcForbiddenIsland.Factory
             islandTile.rowNumber = rowNumber;
             islandTile.columnNumber = columnNumber;
             islandTile.PlayersOnTile = new List<Player>();
+            islandTile.CanHaveStatue = TreasureStatue.None;
+            islandTile.HasStatus = false ;
             return islandTile;
         }
 

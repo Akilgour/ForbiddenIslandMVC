@@ -17,5 +17,7 @@ namespace MvcForbiddenIsland.Models
         public int rowNumber { get; set; }
         public int columnNumber { get; set; }
         public List<Player> PlayersOnTile { get; set; }
+        public TreasureStatue CanHaveStatue { get; set; }
+        public bool HasStatus { get; set; }
     }
 }
