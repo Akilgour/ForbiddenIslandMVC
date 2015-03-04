@@ -14,5 +14,10 @@ namespace MvcForbiddenIsland.Models.Interface
         string Action { get; set; }
         PlayerColour Colour { get; set; }
         TeasureCardDeckId PlayerHandId { get; set; }
+        bool HasEarthStoneTreasureStatue { get; set; }
+        bool HasStatueOfTheWindTreasureStatue { get; set; }
+        bool HasCrystalOfFireTreasureStatue { get; set; }
+        bool HasOceansChaliceTreasureStatue { get; set; }
+        
     }
 }

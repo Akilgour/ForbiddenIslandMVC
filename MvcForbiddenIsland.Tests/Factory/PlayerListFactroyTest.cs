@@ -144,5 +144,26 @@ namespace MvcForbiddenIsland.Tests.Factory
             Assert.AreEqual(item.Action, PlayerConstants.ENGINEER_ACTION);
             Assert.AreEqual(item.Name, "Engineer");
         }
+
+        [TestMethod]
+        public void AllPlayersDontHaveTreasureStatu()
+        {
+            //Arrange 
+            var playerListFactory = new PlayerListFactory();
+
+            //Act 
+            var playerList = playerListFactory.Create();
+
+
+            foreach (var asdf in playerList)
+            {
+                Assert.IsFalse(asdf.HasCrystalOfFireTreasureStatue);
+                Assert.IsFalse(asdf.HasEarthStoneTreasureStatue);
+                Assert.IsFalse(asdf.HasOceansChaliceTreasureStatue);
+                Assert.IsFalse(asdf.HasStatueOfTheWindTreasureStatue);
+
+            }
+        }
+
     }
 }
