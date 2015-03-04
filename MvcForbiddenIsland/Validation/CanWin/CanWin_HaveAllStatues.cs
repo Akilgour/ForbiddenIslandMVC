@@ -10,35 +10,12 @@ namespace MvcForbiddenIsland.Validation.CanWin
 {
     public class CanWin_HaveAllStatues : ICanWin
     {
-        public Models.ValidationResults CanWin( IslandTile FoolsLanding, List<TreasureCard> TreasureCards)
+        public Models.ValidationResults CanWin(IslandTile FoolsLanding, List<TreasureCard> TreasureCards)
         {
-            bool hasCrystalOfFireTreasureStatue = false;
-            bool hasEarthStoneTreasureStatue = false;
-            bool hasOceansChaliceTreasureStatue = false;
-            bool hasStatueOfTheWindTreasureStatue = false;
-
-            foreach (var player in FoolsLanding.PlayersOnTile)
-            {
-                if (player.HasCrystalOfFireTreasureStatue)
-                {
-                    hasCrystalOfFireTreasureStatue = true;
-                }
-                if (player.HasEarthStoneTreasureStatue)
-                {
-                    hasEarthStoneTreasureStatue = true;
-                }
-                if (player.HasOceansChaliceTreasureStatue)
-                {
-                    hasOceansChaliceTreasureStatue = true;
-                }
-                if (player.HasStatueOfTheWindTreasureStatue)
-                {
-                    hasStatueOfTheWindTreasureStatue = true;
-                }
-
-            }
-
-            if (hasCrystalOfFireTreasureStatue && hasEarthStoneTreasureStatue && hasOceansChaliceTreasureStatue && hasStatueOfTheWindTreasureStatue)
+            if (FoolsLanding.PlayersOnTile.Any(x => x.HasCrystalOfFireTreasureStatue)
+              && FoolsLanding.PlayersOnTile.Any(x => x.HasEarthStoneTreasureStatue)
+              && FoolsLanding.PlayersOnTile.Any(x => x.HasOceansChaliceTreasureStatue)
+              && FoolsLanding.PlayersOnTile.Any(x => x.HasStatueOfTheWindTreasureStatue))
             {
                 return new ValidationResults() { IsValid = true };
             }
