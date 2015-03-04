@@ -146,7 +146,7 @@ namespace MvcForbiddenIsland.Tests.Factory
         }
 
         [TestMethod]
-        public void AllPlayersDontHaveTreasureStatu()
+        public void AllPlayersDontHaveTreasureStatue()
         {
             //Arrange 
             var playerListFactory = new PlayerListFactory();
@@ -155,12 +155,12 @@ namespace MvcForbiddenIsland.Tests.Factory
             var playerList = playerListFactory.Create();
 
 
-            foreach (var asdf in playerList)
+            foreach (var player in playerList)
             {
-                Assert.IsFalse(asdf.HasCrystalOfFireTreasureStatue);
-                Assert.IsFalse(asdf.HasEarthStoneTreasureStatue);
-                Assert.IsFalse(asdf.HasOceansChaliceTreasureStatue);
-                Assert.IsFalse(asdf.HasStatueOfTheWindTreasureStatue);
+                Assert.IsFalse(player.HasCrystalOfFireTreasureStatue);
+                Assert.IsFalse(player.HasEarthStoneTreasureStatue);
+                Assert.IsFalse(player.HasOceansChaliceTreasureStatue);
+                Assert.IsFalse(player.HasStatueOfTheWindTreasureStatue);
 
             }
         }
