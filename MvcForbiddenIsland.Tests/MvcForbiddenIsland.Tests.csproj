@@ -120,6 +120,7 @@
     <Compile Include="Factory\TreasureDrawDeckFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Validation\CanLose\CanLoseTest.cs" />
     <Compile Include="Validation\CanMove\CanMove_ColumnOneSpaceTesst.cs" />
     <Compile Include="Validation\CanMove\CanMove_RowOneSpaceTest.cs" />
     <Compile Include="Validation\CanWin\CanWin_AllAtFoolsLandingTest.cs" />
