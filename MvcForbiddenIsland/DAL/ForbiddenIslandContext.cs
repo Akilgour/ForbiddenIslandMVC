@@ -17,11 +17,13 @@ namespace MvcForbiddenIsland.DAL
 
         public DbSet<IslandTile> IslandTile { get; set; }
         public DbSet<Player> Player { get; set; }
-    
+        public DbSet<GamePlaySettings> GamePlaySettings { get; set; }
+       
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+    
         }
 
     }

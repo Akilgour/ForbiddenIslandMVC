@@ -10,13 +10,13 @@ namespace MvcForbiddenIsland.Validation.CanLose
 {
     public class CanLose_HelicopterTileGone : CanLoseBase, ICanLose
     {
-        public ValidationResults IsValid(IslandTile FoolsLanding, List<Models.IslandTile> PlayerTiles, List<Models.IslandTile> TreasureTiles, int WaterLevel)
+        public ValidationResults IsValid (List<IslandTile> IslandBoard, int WaterLevel)
         {
-          //  string output = String.Format(CanWinConstants.AT_FOOLS_LANDING, diver.Name);
+            var foolsLanding = IslandBoard.Single(x => x.Name == "Fools' Landing");
 
-            if (TileGone(FoolsLanding))
+            if (TileGone(foolsLanding))
             {
-                return new ValidationResults() { IsValid = false, ErrorMessage = String.Format(CanLoseConstants.TILE_GONE, FoolsLanding.Name) };
+                return new ValidationResults() { IsValid = false, ErrorMessage = String.Format(CanLoseConstants.TILE_GONE, foolsLanding.Name) };
             }
 
             return new ValidationResults() { IsValid = true };

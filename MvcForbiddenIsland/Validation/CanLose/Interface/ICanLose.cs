@@ -9,7 +9,7 @@ namespace MvcForbiddenIsland.Validation.CanLose.Interface
 {
     public interface ICanLose
     {
-        ValidationResults IsValid(IslandTile FoolsLanding, List<IslandTile> PlayerTiles, List<IslandTile> TreasureTiles, int WaterLevel );
+        ValidationResults IsValid( List<IslandTile> IslandBoard, int WaterLevel );
      
 
     }

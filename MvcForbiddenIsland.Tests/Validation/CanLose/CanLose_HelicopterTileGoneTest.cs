@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MvcForbiddenIsland.Validation.CanLose;
 using MvcForbiddenIsland.Models;
+using System.Collections.Generic;
 
 namespace MvcForbiddenIsland.Tests.Validation.CanLose
 {
@@ -16,9 +17,11 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             var islandTile = new IslandTile();
             islandTile.Name = "Fools' Landing";
             islandTile.SubmergedState = Enum.TileState.Normal;
+            List<IslandTile> islandBoard = new List<IslandTile>();
+            islandBoard.Add(islandTile);
 
             //Act 
-            var result = canLose.IsValid(islandTile, null,null, 0);
+            var result = canLose.IsValid(islandBoard, 0);
 
             //Assert
             Assert.AreEqual(result.IsValid, true);
@@ -33,9 +36,11 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             var islandTile = new IslandTile();
             islandTile.Name = "Fools' Landing";
             islandTile.SubmergedState = Enum.TileState.Flodded;
-         
+            List<IslandTile> islandBoard = new List<IslandTile>();
+            islandBoard.Add(islandTile);
+
             //Act 
-            var result = canLose.IsValid(islandTile, null, null, 0);
+            var result = canLose.IsValid(islandBoard, 0);
 
             //Assert
             Assert.AreEqual(result.IsValid, true);
@@ -50,9 +55,11 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             var islandTile = new IslandTile();
             islandTile.SubmergedState = Enum.TileState.Gone;
             islandTile.Name = "Fools' Landing";
+            List<IslandTile> islandBoard = new List<IslandTile>();
+            islandBoard.Add(islandTile);
 
             //Act 
-            var result = canLose.IsValid(islandTile, null, null, 0);
+            var result = canLose.IsValid(islandBoard, 0);
 
             //Assert
             Assert.AreEqual(result.IsValid, false);   
