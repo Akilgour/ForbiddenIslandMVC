@@ -1,4 +1,5 @@
 ﻿using MvcForbiddenIsland.Constants;
+using MvcForbiddenIsland.Helpers;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Validation.CanLose.Interface;
 using System;
@@ -61,20 +62,8 @@ namespace MvcForbiddenIsland.Validation.CanLose
 
             if (DrownedPlayerNames.Any())
             {
-                string playerOnTile = string.Join(", ", DrownedPlayerNames);
-                var commaIndex = playerOnTile.LastIndexOf(",");
-
-                if (commaIndex != -1)
-                {
-                    playerOnTile = playerOnTile.Remove(commaIndex, 1);
-                    playerOnTile = playerOnTile.Insert(commaIndex, " and");
-                }
-
-
-                return new ValidationResults() { IsValid = false, ErrorMessage = String.Format(CanLoseConstants.PLAYER_HAS_GONE, playerOnTile) };
-
+                return new ValidationResults() { IsValid = false, ErrorMessage = String.Format(CanLoseConstants.PLAYER_HAS_GONE, ListStringToCSVString.ListToString(DrownedPlayerNames)) };
             }
-
             return new ValidationResults() { IsValid = true };
         }
 
