@@ -25,30 +25,21 @@ namespace MvcForbiddenIsland.Validation.CanLose
         {
             var tileThatHavePlayers = IslandBoard.Where(x => x.PlayersOnTile.Any());
 
-            int playerTileRowNumber;
-            int playerTileColumnNumber;
-           
-
             foreach (var tilePlayerIsOn in tileThatHavePlayers)
             {
                 if (TileGone(tilePlayerIsOn))
                 {
                     ThisTilelIsValid = false;
+                    WorkOutIfThereIsAnEscape(IslandBoard, (tilePlayerIsOn.rowNumber - 1), (tilePlayerIsOn.columnNumber - 1));
+                    WorkOutIfThereIsAnEscape(IslandBoard, (tilePlayerIsOn.rowNumber - 1), tilePlayerIsOn.columnNumber);
+                    WorkOutIfThereIsAnEscape(IslandBoard, (tilePlayerIsOn.rowNumber - 1), (tilePlayerIsOn.columnNumber + 1));
 
-                    playerTileRowNumber = tilePlayerIsOn.rowNumber;
-                    playerTileColumnNumber = tilePlayerIsOn.columnNumber;
+                    WorkOutIfThereIsAnEscape(IslandBoard, tilePlayerIsOn.rowNumber, (tilePlayerIsOn.columnNumber - 1));
+                    WorkOutIfThereIsAnEscape(IslandBoard, tilePlayerIsOn.rowNumber, (tilePlayerIsOn.columnNumber + 1));
 
-                    WorkOutIfThereIsAnEscape(IslandBoard, (playerTileRowNumber - 1), (playerTileColumnNumber - 1));
-                    WorkOutIfThereIsAnEscape(IslandBoard, (playerTileRowNumber - 1), playerTileColumnNumber);
-                    WorkOutIfThereIsAnEscape(IslandBoard, (playerTileRowNumber - 1), (playerTileColumnNumber + 1));
-
-                    WorkOutIfThereIsAnEscape(IslandBoard, playerTileRowNumber, (playerTileColumnNumber - 1));
-                    WorkOutIfThereIsAnEscape(IslandBoard, playerTileRowNumber, (playerTileColumnNumber + 1));
-
-                    WorkOutIfThereIsAnEscape(IslandBoard, (playerTileRowNumber + 1), (playerTileColumnNumber - 1));
-                    WorkOutIfThereIsAnEscape(IslandBoard, (playerTileRowNumber + 1), playerTileColumnNumber);
-                    WorkOutIfThereIsAnEscape(IslandBoard, (playerTileRowNumber + 1), (playerTileColumnNumber + 1));
-
+                    WorkOutIfThereIsAnEscape(IslandBoard, (tilePlayerIsOn.rowNumber + 1), (tilePlayerIsOn.columnNumber - 1));
+                    WorkOutIfThereIsAnEscape(IslandBoard, (tilePlayerIsOn.rowNumber + 1), tilePlayerIsOn.columnNumber);
+                    WorkOutIfThereIsAnEscape(IslandBoard, (tilePlayerIsOn.rowNumber + 1), (tilePlayerIsOn.columnNumber + 1));
                     if (!ThisTilelIsValid)
                     {
                         foreach (var player in tilePlayerIsOn.PlayersOnTile)
@@ -59,7 +50,6 @@ namespace MvcForbiddenIsland.Validation.CanLose
 
                 }
             }
-
             if (DrownedPlayerNames.Any())
             {
                 return new ValidationResults() { IsValid = false, ErrorMessage = String.Format(CanLoseConstants.PLAYER_HAS_GONE, ListStringToCSVString.ListToString(DrownedPlayerNames)) };
