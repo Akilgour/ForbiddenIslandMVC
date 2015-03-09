@@ -23,9 +23,8 @@ namespace MvcForbiddenIsland.Validation.CanLose
         /// <returns></returns>
         public ValidationResults IsValid(List<IslandTile> IslandBoard, int WaterLevel)
         {
-            var tileThatHavePlayers = IslandBoard.Where(x => x.PlayersOnTile.Any());
 
-            foreach (var tilePlayerIsOn in tileThatHavePlayers)
+            foreach (var tilePlayerIsOn in IslandBoard.Where(x => x.PlayersOnTile.Any()))
             {
                 if (TileGone(tilePlayerIsOn))
                 {
