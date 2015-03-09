@@ -118,6 +118,7 @@
     <Compile Include="Factory\PlayerListFactroyTest.cs" />
     <Compile Include="Factory\TreasureDeckFactoryTest.cs" />
     <Compile Include="Factory\TreasureDrawDeckFactoryTest.cs" />
+    <Compile Include="Helpers\ListStringToCSVStringTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Validation\CanLose\CanLoseTest.cs" />
