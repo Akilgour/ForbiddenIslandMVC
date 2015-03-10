@@ -23,7 +23,6 @@ namespace MvcForbiddenIsland.Validation.CanLose
         /// <returns></returns>
         public ValidationResults IsValid(List<IslandTile> IslandBoard, int WaterLevel)
         {
-
             foreach (var tilePlayerIsOn in IslandBoard.Where(x => x.PlayersOnTile.Any()))
             {
                 if (TileGone(tilePlayerIsOn))
@@ -46,7 +45,6 @@ namespace MvcForbiddenIsland.Validation.CanLose
                             DrownedPlayerNames.Add(player.Name);
                         }
                     }
-
                 }
             }
             if (DrownedPlayerNames.Any())
@@ -58,25 +56,17 @@ namespace MvcForbiddenIsland.Validation.CanLose
 
         private void WorkOutIfThereIsAnEscape(List<IslandTile> IslandBoard, int playerTileRowNumber, int playerTileColumnNumber)
         {
-            if (playerTileRowNumber != 0)
+            if ((playerTileRowNumber != 0) && (playerTileRowNumber != 7) )
             {
-                if (playerTileColumnNumber != 0)
+                if ((playerTileColumnNumber != 0) &&  (playerTileColumnNumber != 7))
                 {
-                    if (playerTileRowNumber != 7)
+                    if (!TileGone(IslandBoard.Single(x => x.rowNumber == playerTileRowNumber && x.columnNumber == playerTileColumnNumber)))
                     {
-                        if (playerTileColumnNumber != 7)
-                        {
-                            if (!TileGone(IslandBoard.Single(x => x.rowNumber == playerTileRowNumber && x.columnNumber == playerTileColumnNumber)))
-                            {
-                                ThisTilelIsValid = true;
-                            }
-                        }
+                        ThisTilelIsValid = true;
                     }
                 }
             }
         }
-
-
 
     }
 }
