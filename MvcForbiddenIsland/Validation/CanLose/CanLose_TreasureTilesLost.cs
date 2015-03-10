@@ -1,4 +1,5 @@
 ﻿using MvcForbiddenIsland.Constants;
+using MvcForbiddenIsland.Enum;
 using MvcForbiddenIsland.Helpers;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Validation.CanLose.Interface;
@@ -14,19 +15,19 @@ namespace MvcForbiddenIsland.Validation.CanLose
 
         private List<string> goneTileNames = new List<string>();
 
-
+        /// <summary>
+        /// There is two treasure tile for each treasure
+        /// If both are gone the game is over.
+        /// </summary>
+        /// <param name="IslandBoard">All the tiles in te board</param>
+        /// <param name="WaterLevel"></param>
+        /// <returns></returns>
         public ValidationResults IsValid(List<IslandTile> IslandBoard, int WaterLevel)
         {
-            var oceansChaliceTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.OceansChalice).ToList();
-            var crystalOfFireTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.CrystalOfFire).ToList();
-            var statueOfTheWindTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.StatueOfTheWind).ToList();
-            var earthStoneTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.EarthStone).ToList();
-
-            AreTreasuresGone(oceansChaliceTiles, CardConstants.OCEANS_CHALICE_NAME);
-            AreTreasuresGone(crystalOfFireTiles, CardConstants.CRYSTAL_OF_FIRE_NAME);
-            AreTreasuresGone(statueOfTheWindTiles, CardConstants.STATUE_OF_THE_WIND_NAME);
-            AreTreasuresGone(earthStoneTiles, CardConstants.EARTH_STONE_NAME);
-
+            AreBothTreasuresGone(IslandBoard, CardConstants.OCEANS_CHALICE_NAME, TreasureStatue.OceansChalice);
+            AreBothTreasuresGone(IslandBoard, CardConstants.CRYSTAL_OF_FIRE_NAME, TreasureStatue.CrystalOfFire);
+            AreBothTreasuresGone(IslandBoard, CardConstants.STATUE_OF_THE_WIND_NAME, TreasureStatue.StatueOfTheWind);
+            AreBothTreasuresGone(IslandBoard, CardConstants.EARTH_STONE_NAME, TreasureStatue.EarthStone);
 
             if (goneTileNames.Any())
             {
@@ -36,16 +37,14 @@ namespace MvcForbiddenIsland.Validation.CanLose
             return new ValidationResults() { IsValid = true };
         }
 
-        private void AreTreasuresGone(List<IslandTile> oceansChaliceTiles, string TreasureName)
+        private void AreBothTreasuresGone(List<IslandTile> IslandBoard, string TreasureName, TreasureStatue TreasureStatue)
         {
-            if (TileGone(oceansChaliceTiles.First()) && TileGone(oceansChaliceTiles.Last()))
+            var tileThatHaveTheStatues = IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue).ToList();
+            if (TileGone(tileThatHaveTheStatues.First()) && TileGone(tileThatHaveTheStatues.Last()))
             {
                 goneTileNames.Add(TreasureName);
-
             }
         }
-
-
 
     }
 }
