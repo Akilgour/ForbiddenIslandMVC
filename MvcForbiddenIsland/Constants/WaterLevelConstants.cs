@@ -8,6 +8,6 @@ namespace MvcForbiddenIsland.Constants
 {
    public static class WaterLevelConstants
     {
-       public static int MAX_LEVEL = 6;
+       public static int MAX_LEVEL = 10;
     }
 }

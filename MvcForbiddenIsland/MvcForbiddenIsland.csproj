@@ -220,6 +220,7 @@
     <Compile Include="Validation\CanLose\CanLoseBase.cs" />
     <Compile Include="Validation\CanLose\CanLose_HelicopterTileGone.cs" />
     <Compile Include="Validation\CanLose\CanLose_PlayerTilesLost.cs" />
+    <Compile Include="Validation\CanLose\CanLose_WaterAtMaxLevel.cs" />
     <Compile Include="Validation\CanLose\Interface\ICanLose.cs" />
     <Compile Include="Validation\CanMove\CanMove_RowOneSpace.cs" />
     <Compile Include="Validation\CanMove\CanMove_ColumnOneSpace.cs" />

@@ -124,6 +124,7 @@
     <Compile Include="Validation\CanLose\CanLoseTest.cs" />
     <Compile Include="Validation\CanLose\CanLose_HelicopterTileGoneTest.cs" />
     <Compile Include="Validation\CanLose\CanLose_PlayerTilesLostTest.cs" />
+    <Compile Include="Validation\CanLose\CanLose_WaterAtMaxLevelTest.cs" />
     <Compile Include="Validation\CanMove\CanMove_ColumnOneSpaceTesst.cs" />
     <Compile Include="Validation\CanMove\CanMove_RowOneSpaceTest.cs" />
     <Compile Include="Validation\CanWin\CanWin_AllAtFoolsLandingTest.cs" />
