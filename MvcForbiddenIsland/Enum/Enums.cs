@@ -53,4 +53,13 @@ namespace MvcForbiddenIsland.Enum
             OceansChalice,
             None,
         }
+
+
+        public enum MoveType
+        {
+            FirstMyPawnMoveTile,
+            SecondMyPawnMoveTile,
+            ThirdMyPawnMoveTile,
+            FourthMyPawnMoveTile,
+        }
 }

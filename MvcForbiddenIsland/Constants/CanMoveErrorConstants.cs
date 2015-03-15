@@ -9,5 +9,6 @@ namespace MvcForbiddenIsland.Constants
     {
         public static string ONLY_MOVE_ONE_ROW = "Can only move one row at a time";
         public static string ONLY_MOVE_ONE_COLUMN = "Can only move one column at a time";
+        public static string NEED_FOUR_MOVE_TILES = "MoveType four player move tiles";
     }
 }
