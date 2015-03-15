@@ -15,12 +15,23 @@ namespace MvcForbiddenIsland.Managers
 
         public List<ValidationResults> AreMovesValid(Dictionary<MoveType, IslandTile> PlayerMoves, List<ICanMoveValidation> CanMoveValidation, Player Player)
         {
-
+            AreMovesValid_GettingValidData(PlayerMoves, CanMoveValidation);
+            var moveTileOne = PlayerMoves.Single(x => x.Key == MoveType.FirstMyPawnMoveTile).Value;
+            var moveTileTwo = PlayerMoves.Single(x => x.Key == MoveType.SecondMyPawnMoveTile).Value;
+            var moveTileThree = PlayerMoves.Single(x => x.Key == MoveType.ThirdMyPawnMoveTile).Value;
+            var moeTileFour = PlayerMoves.Single(x => x.Key == MoveType.FourthMyPawnMoveTile).Value;
             ValidationResultsList = new List<ValidationResults>();
+            IsMoveValid(CanMoveValidation, Player, moveTileOne, moveTileTwo);
+            IsMoveValid(CanMoveValidation, Player, moveTileTwo, moveTileThree);
+            IsMoveValid(CanMoveValidation, Player, moveTileThree, moeTileFour);
+            return ValidationResultsList;
+        }
 
+        private static void AreMovesValid_GettingValidData(Dictionary<MoveType, IslandTile> PlayerMoves, List<ICanMoveValidation> CanMoveValidation)
+        {
             if (PlayerMoves == null)
             {
-                throw new NullReferenceException("PlayerMoves cannot be null");
+                throw new NullReferenceException(CanMoveErrorConstants.PLAYERMOVES_CANNOT_BE_NULL);
             }
 
             if (!PlayerMoves.Any(x => x.Key == MoveType.FirstMyPawnMoveTile))
@@ -45,31 +56,16 @@ namespace MvcForbiddenIsland.Managers
 
             if (CanMoveValidation == null)
             {
-                throw new NullReferenceException("CanMoveValidation cannot be null");
+                throw new NullReferenceException(CanMoveErrorConstants.CANMOVEVALIDATION_CANNOT_BE_NULL);
             }
-
-
-            var moveTileOne = PlayerMoves.Single(x => x.Key == MoveType.FirstMyPawnMoveTile).Value;
-            var moveTileTwo = PlayerMoves.Single(x => x.Key == MoveType.SecondMyPawnMoveTile).Value;
-            var moveTileThree = PlayerMoves.Single(x => x.Key == MoveType.ThirdMyPawnMoveTile).Value;
-            var moeTileFour = PlayerMoves.Single(x => x.Key == MoveType.FourthMyPawnMoveTile).Value;
-
-
-            IsMoveValid(CanMoveValidation, Player, moveTileOne, moveTileTwo);
-            IsMoveValid(CanMoveValidation, Player, moveTileTwo, moveTileThree);
-            IsMoveValid(CanMoveValidation, Player, moveTileThree, moeTileFour);
-
-            return ValidationResultsList;
-
         }
 
         private void IsMoveValid(List<ICanMoveValidation> CanMoveValidation, Player Player, IslandTile FromMovetile, IslandTile ToMoveTile)
         {
+            ValidationResults validationResult;
             foreach (var validation in CanMoveValidation)
             {
-                var validationResult = validation.IsValid(FromMovetile, ToMoveTile, Player);
-
-
+                validationResult = validation.IsValid(FromMovetile, ToMoveTile, Player);
                 if (!validationResult.IsValid)
                 {
                     ValidationResultsList.Add(validationResult);
