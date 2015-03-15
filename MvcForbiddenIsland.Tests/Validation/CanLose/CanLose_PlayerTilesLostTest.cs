@@ -19,7 +19,6 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         private List<IslandTile> IslandBoard;
         private string DiverHasDrowned = "Diver has drowned.";
         private string DiverAndPilotHasDrowned = "Diver and Pilot has drowned.";
-        private string PilotHasDrowned = "Pilot has drowned.";
 
         /// <summary>
         /// This will get run before every test

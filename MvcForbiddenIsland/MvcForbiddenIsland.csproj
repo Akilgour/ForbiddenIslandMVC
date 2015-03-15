@@ -204,8 +204,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Managers\MoveManager.cs" />
-    <Compile Include="Validation\CanDoTurn\DoTurnValidation.cs" />
-    <Compile Include="Validation\CanDoTurn\DoTurn.cs" />
     <Compile Include="Helpers\ListStringToCSVString.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\GamePlaySettings.cs" />
