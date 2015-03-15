@@ -119,8 +119,8 @@
     <Compile Include="Factory\TreasureDeckFactoryTest.cs" />
     <Compile Include="Factory\TreasureDrawDeckFactoryTest.cs" />
     <Compile Include="Helpers\ListStringToCSVStringTest.cs" />
-    <Compile Include="Managers\Mocks\CanMove_ErrorOnName.cs" />
-    <Compile Include="Managers\MoveManagerTest.cs" />
+    <Compile Include="Managers\Move\Mocks\CanMove_ErrorOnName.cs" />
+    <Compile Include="Managers\Move\MoveManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Validation\CanLose\CanLoseTest.cs" />
@@ -134,11 +134,9 @@
     <Compile Include="Validation\CanWin\CanWin_AtFoolsLandingTest.cs" />
     <Compile Include="Validation\CanWin\CanWin_OnePlayerHasHelicopterCard_Test.cs" />
     <Compile Include="Validation\CanWin\CanWin_HaveAllStatuesTest.cs" />
-    <Compile Include="Validation\DoTurn\DoTurn_CanMove.cs" />
-    <Compile Include="Validation\DoTurn\DoTurn_PlayerMoves.cs" />
-    <Compile Include="Managers\Mocks\CanMove_NotValid.cs" />
-    <Compile Include="Managers\Mocks\CanMove_Valid.cs" />
-    <Compile Include="Managers\Mocks\ManagersTestConstants.cs" />
+    <Compile Include="Managers\Move\Mocks\CanMove_NotValid.cs" />
+    <Compile Include="Managers\Move\Mocks\CanMove_Valid.cs" />
+    <Compile Include="Managers\Move\Mocks\ManagersTestConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -152,7 +150,9 @@
       <Name>MvcForbiddenIsland</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Managers\Lose\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
