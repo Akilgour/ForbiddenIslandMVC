@@ -119,6 +119,12 @@
     <Compile Include="Factory\TreasureDeckFactoryTest.cs" />
     <Compile Include="Factory\TreasureDrawDeckFactoryTest.cs" />
     <Compile Include="Helpers\ListStringToCSVStringTest.cs" />
+    <Compile Include="Managers\Lose\LoseManagerTest.cs" />
+    <Compile Include="Managers\Lose\Mocks\CanLose_NotValid.cs" />
+    <Compile Include="Managers\Lose\Mocks\CanLose_OnTileNameValue.cs" />
+    <Compile Include="Managers\Lose\Mocks\CanLose_OnWaterLevel.cs" />
+    <Compile Include="Managers\Lose\Mocks\CanLose_Valid.cs" />
+    <Compile Include="Managers\Lose\Mocks\LoseManagerTestConstants.cs" />
     <Compile Include="Managers\Move\Mocks\CanMove_ErrorOnName.cs" />
     <Compile Include="Managers\Move\MoveManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -150,9 +156,7 @@
       <Name>MvcForbiddenIsland</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Managers\Lose\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
