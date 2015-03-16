@@ -13,17 +13,8 @@ namespace MvcForbiddenIsland.Managers
 
         public List<ValidationResults> HaveTheyLost(List<IslandTile> IslandBoard, int WaterLevel, List<ICanLose> CanMoveValidation)
         {
-            if (IslandBoard == null)
-            {
-                throw new NullReferenceException(CanLoseConstants.ISLANDBOARD_CANNONT_BE_NULL);
-            }
-
-            if (CanMoveValidation == null)
-            {
-                throw new NullReferenceException(CanLoseConstants.CANLOSEVALIDATION_CANNONT_BE_NULL);
-            }
+            HaveTheyLost_GettingValidData(IslandBoard, CanMoveValidation);
             List<ValidationResults> validationResultsList = new List<ValidationResults>();
-
             ValidationResults validationResult;
             foreach (var validation in CanMoveValidation)
             {
@@ -33,10 +24,20 @@ namespace MvcForbiddenIsland.Managers
                     validationResultsList.Add(validationResult);
                 }
             }
-
             return validationResultsList;
-
         }
 
+        private static void HaveTheyLost_GettingValidData(List<IslandTile> IslandBoard, List<ICanLose> CanMoveValidation)
+        {
+            if (IslandBoard == null)
+            {
+                throw new NullReferenceException(CanLoseConstants.ISLANDBOARD_CANNONT_BE_NULL);
+            }
+
+            if (CanMoveValidation == null)
+            {
+                throw new NullReferenceException(CanLoseConstants.CANLOSEVALIDATION_CANNONT_BE_NULL);
+            }
+        }
     }
 }
