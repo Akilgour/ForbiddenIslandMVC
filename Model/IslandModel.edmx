@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ForbidenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GamePlaySettings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstMovePlayerId" Type="uniqueidentifier" />
+          <Property Name="SecondMovePlayerId" Type="uniqueidentifier" />
+          <Property Name="ThirdMovePlayerId" Type="uniqueidentifier" />
+          <Property Name="FourthMovePlayerId" Type="uniqueidentifier" />
+          <Property Name="MoveNumber" Type="int" />
+          <Property Name="WaterLevelMarker" Type="int" />
+          <Property Name="DrawDeckId" Type="uniqueidentifier" />
+          <Property Name="DiscardDeckId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="IslandTile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="SubmergedState" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StartingTileForPlayer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HelicopterSite" Type="bit" Nullable="false" />
+          <Property Name="RowNumber" Type="int" Nullable="false" />
+          <Property Name="ColumnNumber" Type="int" Nullable="false" />
+          <Property Name="HasStatue" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Action" Type="nvarchar" MaxLength="500" />
+          <Property Name="Colour" Type="nvarchar" MaxLength="50" />
+          <Property Name="HasEarthStoneTreasureStatue" Type="bit" />
+          <Property Name="HasStatueOfTheWindTreasureStatue" Type="bit" />
+          <Property Name="HasCrystalOfFireTreasureStatue" Type="bit" />
+          <Property Name="HasOceansChaliceTreasureStatue" Type="bit" />
+          <Property Name="IslandTileId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="TreasureCard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Action" Type="nvarchar" MaxLength="500" />
+          <Property Name="TreasureCardType" Type="nvarchar" MaxLength="500" />
+          <Property Name="Order" Type="int" />
+          <Property Name="DeckTheCardIsIn" Type="uniqueidentifier" />
+        </EntityType>
+        <Association Name="FK_GamePlaySettings_FirstPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="FirstMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlaySettings_FourthPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="FourthMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlaySettings_SecondPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="SecondMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlaySettings_ThirdPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySettings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="ThirdMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ForbidenModelStoreContainer">
+          <EntitySet Name="GamePlaySettings" EntityType="Self.GamePlaySettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IslandTile" EntityType="Self.IslandTile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TreasureCard" EntityType="Self.TreasureCard" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GamePlaySettings_FirstPlayer" Association="Self.FK_GamePlaySettings_FirstPlayer">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlaySettings_FourthPlayer" Association="Self.FK_GamePlaySettings_FourthPlayer">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlaySettings_SecondPlayer" Association="Self.FK_GamePlaySettings_SecondPlayer">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlaySettings_ThirdPlayer" Association="Self.FK_GamePlaySettings_ThirdPlayer">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForbidenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GamePlaySetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="FirstMovePlayerId" Type="Guid" />
+          <Property Name="SecondMovePlayerId" Type="Guid" />
+          <Property Name="ThirdMovePlayerId" Type="Guid" />
+          <Property Name="FourthMovePlayerId" Type="Guid" />
+          <Property Name="MoveNumber" Type="Int32" />
+          <Property Name="WaterLevelMarker" Type="Int32" />
+          <Property Name="DrawDeckId" Type="Guid" />
+          <Property Name="DiscardDeckId" Type="Guid" />
+          <NavigationProperty Name="Player" Relationship="Self.FK_GamePlaySettings_FirstPlayer" FromRole="GamePlaySettings" ToRole="Player" />
+          <NavigationProperty Name="Player1" Relationship="Self.FK_GamePlaySettings_FourthPlayer" FromRole="GamePlaySettings" ToRole="Player" />
+          <NavigationProperty Name="Player2" Relationship="Self.FK_GamePlaySettings_SecondPlayer" FromRole="GamePlaySettings" ToRole="Player" />
+          <NavigationProperty Name="Player3" Relationship="Self.FK_GamePlaySettings_ThirdPlayer" FromRole="GamePlaySettings" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="IslandTile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmergedState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartingTileForPlayer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HelicopterSite" Type="Boolean" Nullable="false" />
+          <Property Name="RowNumber" Type="Int32" Nullable="false" />
+          <Property Name="ColumnNumber" Type="Int32" Nullable="false" />
+          <Property Name="HasStatue" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HasEarthStoneTreasureStatue" Type="Boolean" />
+          <Property Name="HasStatueOfTheWindTreasureStatue" Type="Boolean" />
+          <Property Name="HasCrystalOfFireTreasureStatue" Type="Boolean" />
+          <Property Name="HasOceansChaliceTreasureStatue" Type="Boolean" />
+          <Property Name="IslandTileId" Type="Guid" />
+          <NavigationProperty Name="GamePlaySettings" Relationship="Self.FK_GamePlaySettings_FirstPlayer" FromRole="Player" ToRole="GamePlaySettings" />
+          <NavigationProperty Name="GamePlaySettings1" Relationship="Self.FK_GamePlaySettings_FourthPlayer" FromRole="Player" ToRole="GamePlaySettings" />
+          <NavigationProperty Name="GamePlaySettings2" Relationship="Self.FK_GamePlaySettings_SecondPlayer" FromRole="Player" ToRole="GamePlaySettings" />
+          <NavigationProperty Name="GamePlaySettings3" Relationship="Self.FK_GamePlaySettings_ThirdPlayer" FromRole="Player" ToRole="GamePlaySettings" />
+        </EntityType>
+        <EntityType Name="TreasureCard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TreasureCardType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="DeckTheCardIsIn" Type="Guid" />
+        </EntityType>
+        <Association Name="FK_GamePlaySettings_FirstPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="FirstMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlaySettings_FourthPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="FourthMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlaySettings_SecondPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="SecondMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GamePlaySettings_ThirdPlayer">
+          <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
+          <End Role="GamePlaySettings" Type="Self.GamePlaySetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GamePlaySettings">
+              <PropertyRef Name="ThirdMovePlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ForbidenEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GamePlaySettings" EntityType="Self.GamePlaySetting" />
+          <EntitySet Name="IslandTiles" EntityType="Self.IslandTile" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="TreasureCards" EntityType="Self.TreasureCard" />
+          <AssociationSet Name="FK_GamePlaySettings_FirstPlayer" Association="Self.FK_GamePlaySettings_FirstPlayer">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlaySettings_FourthPlayer" Association="Self.FK_GamePlaySettings_FourthPlayer">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlaySettings_SecondPlayer" Association="Self.FK_GamePlaySettings_SecondPlayer">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GamePlaySettings_ThirdPlayer" Association="Self.FK_GamePlaySettings_ThirdPlayer">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForbidenModelStoreContainer" CdmEntityContainer="ForbidenEntities1">
+          <EntitySetMapping Name="GamePlaySettings">
+            <EntityTypeMapping TypeName="ForbidenModel.GamePlaySetting">
+              <MappingFragment StoreEntitySet="GamePlaySettings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstMovePlayerId" ColumnName="FirstMovePlayerId" />
+                <ScalarProperty Name="SecondMovePlayerId" ColumnName="SecondMovePlayerId" />
+                <ScalarProperty Name="ThirdMovePlayerId" ColumnName="ThirdMovePlayerId" />
+                <ScalarProperty Name="FourthMovePlayerId" ColumnName="FourthMovePlayerId" />
+                <ScalarProperty Name="MoveNumber" ColumnName="MoveNumber" />
+                <ScalarProperty Name="WaterLevelMarker" ColumnName="WaterLevelMarker" />
+                <ScalarProperty Name="DrawDeckId" ColumnName="DrawDeckId" />
+                <ScalarProperty Name="DiscardDeckId" ColumnName="DiscardDeckId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IslandTiles">
+            <EntityTypeMapping TypeName="ForbidenModel.IslandTile">
+              <MappingFragment StoreEntitySet="IslandTile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SubmergedState" ColumnName="SubmergedState" />
+                <ScalarProperty Name="StartingTileForPlayer" ColumnName="StartingTileForPlayer" />
+                <ScalarProperty Name="HelicopterSite" ColumnName="HelicopterSite" />
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+                <ScalarProperty Name="ColumnNumber" ColumnName="ColumnNumber" />
+                <ScalarProperty Name="HasStatue" ColumnName="HasStatue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="ForbidenModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="HasEarthStoneTreasureStatue" ColumnName="HasEarthStoneTreasureStatue" />
+                <ScalarProperty Name="HasStatueOfTheWindTreasureStatue" ColumnName="HasStatueOfTheWindTreasureStatue" />
+                <ScalarProperty Name="HasCrystalOfFireTreasureStatue" ColumnName="HasCrystalOfFireTreasureStatue" />
+                <ScalarProperty Name="HasOceansChaliceTreasureStatue" ColumnName="HasOceansChaliceTreasureStatue" />
+                <ScalarProperty Name="IslandTileId" ColumnName="IslandTileId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TreasureCards">
+            <EntityTypeMapping TypeName="ForbidenModel.TreasureCard">
+              <MappingFragment StoreEntitySet="TreasureCard">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="TreasureCardType" ColumnName="TreasureCardType" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="DeckTheCardIsIn" ColumnName="DeckTheCardIsIn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
