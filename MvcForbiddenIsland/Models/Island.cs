@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Models.Interface;
+﻿using Model;
+using MvcForbiddenIsland.Models.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;

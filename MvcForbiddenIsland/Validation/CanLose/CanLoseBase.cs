@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Models;
+﻿using Model;
+using MvcForbiddenIsland.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MvcForbiddenIsland.Validation.CanLose
 
         public bool TileGone(IslandTile islandTile)
         {
-            return (islandTile.SubmergedState == Enum.TileState.Gone);
+            return (islandTile.SubmergedState == Enum.TileState.Gone.ToString());
         }
     }
 }

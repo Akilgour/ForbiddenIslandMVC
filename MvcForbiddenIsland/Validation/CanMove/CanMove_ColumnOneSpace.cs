@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Constants;
+﻿using Model;
+using MvcForbiddenIsland.Constants;
 using MvcForbiddenIsland.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace MvcForbiddenIsland.Validation.CanMove
         public ValidationResults IsValid(IslandTile FirstIslandTile, IslandTile SecondIslandTile, Player Player)
         {
 
-            int result = FirstIslandTile.columnNumber > SecondIslandTile.columnNumber ? FirstIslandTile.columnNumber - SecondIslandTile.columnNumber : SecondIslandTile.columnNumber - FirstIslandTile.columnNumber;
+            int result = FirstIslandTile.ColumnNumber > SecondIslandTile.ColumnNumber ? FirstIslandTile.ColumnNumber - SecondIslandTile.ColumnNumber : SecondIslandTile.ColumnNumber - FirstIslandTile.ColumnNumber;
 
             if (result > 1)
             {

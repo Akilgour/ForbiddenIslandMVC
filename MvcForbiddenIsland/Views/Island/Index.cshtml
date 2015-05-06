@@ -6,15 +6,15 @@
 }
 
 <script type="text/javascript" language="javascript">
-    function onSubmitButtonClick(rowNumber) {
+    function onSubmitButtonClick(RowNumber) {
         if ($("#MoveOne").val() == "00000000-0000-0000-0000-000000000000") {
-            $("#MoveOne").val(rowNumber);
+            $("#MoveOne").val(RowNumber);
         }
         else if ($("#MoveTwo").val() == "00000000-0000-0000-0000-000000000000") {
-            $("#MoveTwo").val(rowNumber);
+            $("#MoveTwo").val(RowNumber);
         }
         else if ($("#MoveThree").val() == "00000000-0000-0000-0000-000000000000") {
-            $("#MoveThree").val(rowNumber);
+            $("#MoveThree").val(RowNumber);
         }
     }
 
@@ -56,7 +56,7 @@
 @helper DisplayIslandRow(int i)
 {
     <tr>
-        @foreach (var item in Model.IslandBoard.Where(x => x.rowNumber == i).OrderBy(x => x.columnNumber))
+        @foreach (var item in Model.IslandBoard.Where(x => x.RowNumber == i).OrderBy(x => x.ColumnNumber))
         {
             <td onclick="onSubmitButtonClick('@item.Id')">
                 @item.Name

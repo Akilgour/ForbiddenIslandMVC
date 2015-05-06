@@ -6,13 +6,13 @@
     <edmx:Diagrams>
       <Diagram DiagramId="6a5361d0135e4e31b902beb02e19757c" Name="Diagram1">
         <EntityTypeShape EntityType="ForbidenModel.GamePlaySetting" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ForbidenModel.IslandTile" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbidenModel.IslandTile" Width="1.5" PointX="5.875" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ForbidenModel.Player" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="ForbidenModel.TreasureCard" Width="1.5" PointX="7.875" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="ForbidenModel.FK_GamePlaySettings_FirstPlayer" ManuallyRouted="false" />
         <AssociationConnector Association="ForbidenModel.FK_GamePlaySettings_FourthPlayer" ManuallyRouted="false" />
         <AssociationConnector Association="ForbidenModel.FK_GamePlaySettings_SecondPlayer" ManuallyRouted="false" />
         <AssociationConnector Association="ForbidenModel.FK_GamePlaySettings_ThirdPlayer" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ForbidenModel.TreasureCard" Width="1.5" PointX="8.25" PointY="1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ForbidenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ForbidenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GamePlaySettings">
           <Key>
             <PropertyRef Name="Id" />
@@ -31,6 +31,7 @@
           <Property Name="RowNumber" Type="int" Nullable="false" />
           <Property Name="ColumnNumber" Type="int" Nullable="false" />
           <Property Name="HasStatue" Type="bit" Nullable="false" />
+          <Property Name="CanHaveStatue" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
@@ -40,10 +41,10 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Action" Type="nvarchar" MaxLength="500" />
           <Property Name="Colour" Type="nvarchar" MaxLength="50" />
-          <Property Name="HasEarthStoneTreasureStatue" Type="bit" />
-          <Property Name="HasStatueOfTheWindTreasureStatue" Type="bit" />
-          <Property Name="HasCrystalOfFireTreasureStatue" Type="bit" />
-          <Property Name="HasOceansChaliceTreasureStatue" Type="bit" />
+          <Property Name="HasEarthStoneTreasureStatue" Type="bit" Nullable="false" />
+          <Property Name="HasStatueOfTheWindTreasureStatue" Type="bit" Nullable="false" />
+          <Property Name="HasCrystalOfFireTreasureStatue" Type="bit" Nullable="false" />
+          <Property Name="HasOceansChaliceTreasureStatue" Type="bit" Nullable="false" />
           <Property Name="IslandTileId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="TreasureCard">
@@ -56,7 +57,7 @@
           <Property Name="Action" Type="nvarchar" MaxLength="500" />
           <Property Name="TreasureCardType" Type="nvarchar" MaxLength="500" />
           <Property Name="Order" Type="int" />
-          <Property Name="DeckTheCardIsIn" Type="uniqueidentifier" />
+          <Property Name="DeckTheCardIsIn" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_GamePlaySettings_FirstPlayer">
           <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
@@ -128,8 +129,7 @@
             <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ForbidenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -163,6 +163,7 @@
           <Property Name="RowNumber" Type="Int32" Nullable="false" />
           <Property Name="ColumnNumber" Type="Int32" Nullable="false" />
           <Property Name="HasStatue" Type="Boolean" Nullable="false" />
+          <Property Name="CanHaveStatue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
@@ -172,27 +173,15 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HasEarthStoneTreasureStatue" Type="Boolean" />
-          <Property Name="HasStatueOfTheWindTreasureStatue" Type="Boolean" />
-          <Property Name="HasCrystalOfFireTreasureStatue" Type="Boolean" />
-          <Property Name="HasOceansChaliceTreasureStatue" Type="Boolean" />
+          <Property Name="HasEarthStoneTreasureStatue" Type="Boolean" Nullable="false" />
+          <Property Name="HasStatueOfTheWindTreasureStatue" Type="Boolean" Nullable="false" />
+          <Property Name="HasCrystalOfFireTreasureStatue" Type="Boolean" Nullable="false" />
+          <Property Name="HasOceansChaliceTreasureStatue" Type="Boolean" Nullable="false" />
           <Property Name="IslandTileId" Type="Guid" />
           <NavigationProperty Name="GamePlaySettings" Relationship="Self.FK_GamePlaySettings_FirstPlayer" FromRole="Player" ToRole="GamePlaySettings" />
           <NavigationProperty Name="GamePlaySettings1" Relationship="Self.FK_GamePlaySettings_FourthPlayer" FromRole="Player" ToRole="GamePlaySettings" />
           <NavigationProperty Name="GamePlaySettings2" Relationship="Self.FK_GamePlaySettings_SecondPlayer" FromRole="Player" ToRole="GamePlaySettings" />
           <NavigationProperty Name="GamePlaySettings3" Relationship="Self.FK_GamePlaySettings_ThirdPlayer" FromRole="Player" ToRole="GamePlaySettings" />
-        </EntityType>
-        <EntityType Name="TreasureCard">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="TreasureCardType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Order" Type="Int32" />
-          <Property Name="DeckTheCardIsIn" Type="Guid" />
         </EntityType>
         <Association Name="FK_GamePlaySettings_FirstPlayer">
           <End Role="Player" Type="Self.Player" Multiplicity="0..1" />
@@ -246,7 +235,6 @@
           <EntitySet Name="GamePlaySettings" EntityType="Self.GamePlaySetting" />
           <EntitySet Name="IslandTiles" EntityType="Self.IslandTile" />
           <EntitySet Name="Players" EntityType="Self.Player" />
-          <EntitySet Name="TreasureCards" EntityType="Self.TreasureCard" />
           <AssociationSet Name="FK_GamePlaySettings_FirstPlayer" Association="Self.FK_GamePlaySettings_FirstPlayer">
             <End Role="Player" EntitySet="Players" />
             <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
@@ -263,7 +251,20 @@
             <End Role="Player" EntitySet="Players" />
             <End Role="GamePlaySettings" EntitySet="GamePlaySettings" />
           </AssociationSet>
+          <EntitySet Name="TreasureCards" EntityType="ForbidenModel.TreasureCard" />
         </EntityContainer>
+        <EntityType Name="TreasureCard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TreasureCardType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="DeckTheCardIsIn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -288,6 +289,7 @@
           <EntitySetMapping Name="IslandTiles">
             <EntityTypeMapping TypeName="ForbidenModel.IslandTile">
               <MappingFragment StoreEntitySet="IslandTile">
+                <ScalarProperty Name="CanHaveStatue" ColumnName="CanHaveStatue" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SubmergedState" ColumnName="SubmergedState" />
@@ -317,13 +319,13 @@
           <EntitySetMapping Name="TreasureCards">
             <EntityTypeMapping TypeName="ForbidenModel.TreasureCard">
               <MappingFragment StoreEntitySet="TreasureCard">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Action" ColumnName="Action" />
-                <ScalarProperty Name="TreasureCardType" ColumnName="TreasureCardType" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
                 <ScalarProperty Name="DeckTheCardIsIn" ColumnName="DeckTheCardIsIn" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="TreasureCardType" ColumnName="TreasureCardType" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

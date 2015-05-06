@@ -30,10 +30,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void TestInitialize()
         {
             IslandBoard = new IslandFactory().Create().IslandBoard;
-            OceansChaliceTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.OceansChalice).ToList();
-            CrystalOfFireTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.CrystalOfFire).ToList();
-            StatueOfTheWindTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.StatueOfTheWind).ToList();
-            EarthStoneTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.EarthStone).ToList();
+            OceansChaliceTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.OceansChalice.ToString()).ToList();
+            CrystalOfFireTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.CrystalOfFire.ToString()).ToList();
+            StatueOfTheWindTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.StatueOfTheWind.ToString()).ToList();
+            EarthStoneTiles = IslandBoard.Where(x => x.CanHaveStatue == Enum.TreasureStatue.EarthStone.ToString()).ToList();
         }
 
         [TestMethod]
@@ -55,7 +55,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone;
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -70,8 +70,8 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone;
-            OceansChaliceTiles.Last().SubmergedState = Enum.TileState.Gone;
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            OceansChaliceTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -86,7 +86,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            OceansChaliceTiles.Last().SubmergedState = Enum.TileState.Gone;
+            OceansChaliceTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -102,7 +102,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone;
+            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -117,8 +117,8 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone;
-            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Gone;
+            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -133,7 +133,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Gone;
+            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -148,7 +148,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone;
+            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -163,8 +163,8 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone;
-            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone;
+            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -179,7 +179,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone;
+            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -194,7 +194,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone;
+            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -209,8 +209,8 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone;
-            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone;
+            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -225,7 +225,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone;
+            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -240,10 +240,10 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone;
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone;
-            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone;
-            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone;
+            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
+            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -258,15 +258,15 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone;
-            OceansChaliceTiles.Last().SubmergedState = Enum.TileState.Gone;
-            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone;
-            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Gone;
+            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
+            OceansChaliceTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
+            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
+            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Gone.ToString();
 
-            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone;
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone;
-            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone;
-            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone;
+            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -281,15 +281,15 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Flodded;
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Flodded;
-            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Flodded;
-            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Flodded;
+            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Flodded.ToString();
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Flodded.ToString();
+            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Flodded.ToString();
+            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Flodded.ToString();
 
-            EarthStoneTiles.First().SubmergedState = Enum.TileState.Flodded;
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Flodded;
-            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Flodded;
-            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Flodded;
+            EarthStoneTiles.First().SubmergedState = Enum.TileState.Flodded.ToString();
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Flodded.ToString();
+            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Flodded.ToString();
+            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Flodded.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);
@@ -304,15 +304,15 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         {
             //Arrange 
             var canLose = new CanLose_TreasureTilesLost();
-            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Flodded;
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Flodded;
-            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Flodded;
-            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Flodded;
+            EarthStoneTiles.Last().SubmergedState = Enum.TileState.Flodded.ToString();
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Flodded.ToString();
+            StatueOfTheWindTiles.Last().SubmergedState = Enum.TileState.Flodded.ToString();
+            CrystalOfFireTiles.Last().SubmergedState = Enum.TileState.Flodded.ToString();
 
-            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone;
-            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone;
-            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone;
-            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone;
+            EarthStoneTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            OceansChaliceTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            StatueOfTheWindTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
+            CrystalOfFireTiles.First().SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act           
             var result = canLose.IsValid(IslandBoard, 0);

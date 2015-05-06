@@ -45,7 +45,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeAllTilesOkay()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -61,9 +61,9 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnFloodedAllOthersOkay()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile.SubmergedState = TileState.Flodded;
+            islandTile.SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -79,9 +79,9 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneAllOthersOkay()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile.SubmergedState = TileState.Gone;
+            islandTile.SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -97,20 +97,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnOkaySurroundedGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
           
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -126,20 +126,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnFloddedSurroundedGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -155,20 +155,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneSurroundedGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -184,20 +184,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneTwoTwoNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -213,20 +213,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneTwoThreeNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -242,20 +242,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneTwoFourNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Normal;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Normal.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -271,20 +271,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneThreeTwoNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -300,20 +300,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneThreeFourNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Normal;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Normal.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -329,20 +329,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneFourTwoNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -358,20 +358,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneFourThreeNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -387,20 +387,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneFourFourNormalRestGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Normal;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Normal.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -418,20 +418,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneTwoTwoNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -447,20 +447,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneTwoThreeNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -476,20 +476,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneTwoFourNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Normal;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Normal.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -505,20 +505,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneThreeTwoNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -534,20 +534,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneThreeFourNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Normal;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Normal.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -563,20 +563,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneFourTwoNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -592,20 +592,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneFourThreeNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Normal;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Normal.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -621,20 +621,20 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeTileOnGoneFourFourNormalRestFlodded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Flodded;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Flodded.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Flodded;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Normal;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Flodded.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Normal.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -650,13 +650,13 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeAndPlayerAtFourXFourTileOnFloodedAllOthersOkay()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
 
-             islandTile = IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4);
+             islandTile = IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4);
             islandTile.PlayersOnTile.Add(Pilot);
 
-            islandTile.SubmergedState = TileState.Flodded;
+            islandTile.SubmergedState = TileState.Flodded.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -672,22 +672,22 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeAndPlayerAtFourXFourTileOnGoneFourThreeNormalSurroundedGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile = IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4);
+            islandTile = IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4);
             islandTile.PlayersOnTile.Add(Pilot);
 
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 2 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 2 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 2).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 3).SubmergedState = TileState.Gone;
-            IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4).SubmergedState = TileState.Gone;
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 2).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 3).SubmergedState = TileState.Gone.ToString();
+            IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4).SubmergedState = TileState.Gone.ToString();
 
             var canLose = new CanLose_PlayerTilesLost();
 
@@ -703,13 +703,13 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXThreeAndPlayerAtFourXFourEveryThingGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile = IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 4);
+            islandTile = IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 4);
             islandTile.PlayersOnTile.Add(Pilot);
 
             foreach(var tile in IslandBoard){
-                tile.SubmergedState = TileState.Gone;
+                tile.SubmergedState = TileState.Gone.ToString();
             }
 
             var canLose = new CanLose_PlayerTilesLost();
@@ -726,14 +726,14 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtOneXThreeeAndPlayerAtOneXFourEveryThingGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 1 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 1 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile = IslandBoard.Single(x => x.rowNumber == 1 && x.columnNumber == 4);
+            islandTile = IslandBoard.Single(x => x.RowNumber == 1 && x.ColumnNumber == 4);
             islandTile.PlayersOnTile.Add(Pilot);
 
             foreach (var tile in IslandBoard)
             {
-                tile.SubmergedState = TileState.Gone;
+                tile.SubmergedState = TileState.Gone.ToString();
             }
 
             var canLose = new CanLose_PlayerTilesLost();
@@ -750,14 +750,14 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtOneXThreeAndPlayerAtOneXFourEveryThingGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 1);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 1);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile = IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 1);
+            islandTile = IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 1);
             islandTile.PlayersOnTile.Add(Pilot);
 
             foreach (var tile in IslandBoard)
             {
-                tile.SubmergedState = TileState.Gone;
+                tile.SubmergedState = TileState.Gone.ToString();
             }
 
             var canLose = new CanLose_PlayerTilesLost();
@@ -774,14 +774,14 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtThreeXSixAndPlayerAtFourXSixEveryThingGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 6);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 6);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile = IslandBoard.Single(x => x.rowNumber == 4 && x.columnNumber == 6);
+            islandTile = IslandBoard.Single(x => x.RowNumber == 4 && x.ColumnNumber == 6);
             islandTile.PlayersOnTile.Add(Pilot);
 
             foreach (var tile in IslandBoard)
             {
-                tile.SubmergedState = TileState.Gone;
+                tile.SubmergedState = TileState.Gone.ToString();
             }
 
             var canLose = new CanLose_PlayerTilesLost();
@@ -798,14 +798,14 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void PlayerAtSixXThreeAndPlayerAtSixXFourEveryThingGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 6 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 6 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
-            islandTile = IslandBoard.Single(x => x.rowNumber == 6 && x.columnNumber == 4);
+            islandTile = IslandBoard.Single(x => x.RowNumber == 6 && x.ColumnNumber == 4);
             islandTile.PlayersOnTile.Add(Pilot);
 
             foreach (var tile in IslandBoard)
             {
-                tile.SubmergedState = TileState.Gone;
+                tile.SubmergedState = TileState.Gone.ToString();
             }
 
             var canLose = new CanLose_PlayerTilesLost();
@@ -823,13 +823,13 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void TwoPlayerOnSameTileEveryThingGone()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
             islandTile.PlayersOnTile.Add(Pilot);
 
             foreach (var tile in IslandBoard)
             {
-                tile.SubmergedState = TileState.Gone;
+                tile.SubmergedState = TileState.Gone.ToString();
             }
 
             var canLose = new CanLose_PlayerTilesLost();
@@ -846,13 +846,13 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
         public void TwoPlayerOnSameTileEveryThingFlooded()
         {
             //Arrange 
-            var islandTile = IslandBoard.Single(x => x.rowNumber == 3 && x.columnNumber == 3);
+            var islandTile = IslandBoard.Single(x => x.RowNumber == 3 && x.ColumnNumber == 3);
             islandTile.PlayersOnTile.Add(Diver);
             islandTile.PlayersOnTile.Add(Pilot);
 
             foreach (var tile in IslandBoard)
             {
-                tile.SubmergedState = TileState.Flodded;
+                tile.SubmergedState = TileState.Flodded.ToString();
             }
 
             var canLose = new CanLose_PlayerTilesLost();

@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Constants;
+﻿using Model;
+using MvcForbiddenIsland.Constants;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Validation.CanWin.Interface;
 using System;
@@ -13,10 +14,11 @@ namespace MvcForbiddenIsland.Validation.CanMove
         public Models.ValidationResults CanWin(IslandTile FoolsLanding, List<TreasureCard> TreasureCards)
         {
 
-            var playerTreasureCards = TreasureCards.Where(x => x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerOneDeck ||
-                                                    x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerTwoDeck ||
-                                                    x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerThreeDeck ||
-                                                    x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerFourDeck);
+            //TODO
+            var playerTreasureCards = TreasureCards.Where(x => x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerOneDeck.ToString() ||
+                                                    x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerTwoDeck.ToString() ||
+                                                    x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerThreeDeck.ToString() ||
+                                                    x.DeckTheCardIsIn == Enum.TeasureCardDeckId.PlayerFourDeck.ToString());
 
             if (playerTreasureCards.Any(x => x.Name == CardConstants.HELICOPTERLIFT_NAME))
             {

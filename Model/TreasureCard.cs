@@ -7,19 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+using System;
+using System.Collections.Generic;
+
+public partial class TreasureCard
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class TreasureCard
-    {
-        public System.Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Action { get; set; }
-        public string TreasureCardType { get; set; }
-        public Nullable<int> Order { get; set; }
-        public Nullable<System.Guid> DeckTheCardIsIn { get; set; }
-    }
+    public System.Guid Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public string Action { get; set; }
+    public string TreasureCardType { get; set; }
+    public Nullable<int> Order { get; set; }
+    public string DeckTheCardIsIn { get; set; }
 }

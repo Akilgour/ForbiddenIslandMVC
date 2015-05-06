@@ -16,7 +16,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             var canLose = new CanLose_HelicopterTileGone();
             var islandTile = new IslandTile();
             islandTile.Name = "Fools' Landing";
-            islandTile.SubmergedState = Enum.TileState.Normal;
+            islandTile.SubmergedState = Enum.TileState.Normal.ToString();
             List<IslandTile> islandBoard = new List<IslandTile>();
             islandBoard.Add(islandTile);
 
@@ -35,7 +35,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             var canLose = new CanLose_HelicopterTileGone();
             var islandTile = new IslandTile();
             islandTile.Name = "Fools' Landing";
-            islandTile.SubmergedState = Enum.TileState.Flodded;
+            islandTile.SubmergedState = Enum.TileState.Flodded.ToString();
             List<IslandTile> islandBoard = new List<IslandTile>();
             islandBoard.Add(islandTile);
 
@@ -53,7 +53,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             //Arrange 
             var canLose = new CanLose_HelicopterTileGone();
             var islandTile = new IslandTile();
-            islandTile.SubmergedState = Enum.TileState.Gone;
+            islandTile.SubmergedState = Enum.TileState.Gone.ToString();
             islandTile.Name = "Fools' Landing";
             List<IslandTile> islandBoard = new List<IslandTile>();
             islandBoard.Add(islandTile);

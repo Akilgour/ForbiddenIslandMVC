@@ -55,7 +55,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Messenger");
 
             //Assert
-            Assert.AreEqual(item.Colour, PlayerColour.Grey);
+            Assert.AreEqual(item.Colour, PlayerColour.Grey.ToString());
             Assert.AreEqual(item.Action, PlayerConstants.MESSENGER_ACTION);
             Assert.AreEqual(item.Name, "Messenger");
         }
@@ -72,7 +72,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Explorer");
 
             //Assert
-            Assert.AreEqual(item.Colour, PlayerColour.Green);
+            Assert.AreEqual(item.Colour, PlayerColour.Green.ToString());
             Assert.AreEqual(item.Action, PlayerConstants.EXPLORER_ACTION);
             Assert.AreEqual(item.Name, "Explorer");
         }
@@ -89,7 +89,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Diver");
 
             //Assert
-            Assert.AreEqual(item.Colour, PlayerColour.Black);
+            Assert.AreEqual(item.Colour, PlayerColour.Black.ToString());
             Assert.AreEqual(item.Action, PlayerConstants.DIVER_ACTION);
             Assert.AreEqual(item.Name, "Diver");
         }
@@ -106,7 +106,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Pilot");
 
             //Assert
-            Assert.AreEqual(item.Colour, PlayerColour.Blue);
+            Assert.AreEqual(item.Colour, PlayerColour.Blue.ToString());
             Assert.AreEqual(item.Action, PlayerConstants.PILOT_ACTION);
             Assert.AreEqual(item.Name, "Pilot");
         }
@@ -123,7 +123,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Navigator");
 
             //Assert
-            Assert.AreEqual(item.Colour, PlayerColour.Yellow);
+            Assert.AreEqual(item.Colour, PlayerColour.Yellow.ToString());
             Assert.AreEqual(item.Action, PlayerConstants.NAVIGATOR_ACTION);
             Assert.AreEqual(item.Name, "Navigator");
         }
@@ -140,7 +140,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var item = playerList.SingleOrDefault(x => x.Name == "Engineer");
 
             //Assert
-            Assert.AreEqual(item.Colour, PlayerColour.Red);
+            Assert.AreEqual(item.Colour, PlayerColour.Red.ToString());
             Assert.AreEqual(item.Action, PlayerConstants.ENGINEER_ACTION);
             Assert.AreEqual(item.Name, "Engineer");
         }

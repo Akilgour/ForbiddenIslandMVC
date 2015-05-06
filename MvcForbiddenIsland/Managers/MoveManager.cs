@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Constants;
+﻿using Model;
+using MvcForbiddenIsland.Constants;
 using MvcForbiddenIsland.Enum;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Validation.CanMove;

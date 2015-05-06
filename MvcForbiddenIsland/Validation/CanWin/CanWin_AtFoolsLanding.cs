@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Constants;
+﻿using Model;
+using MvcForbiddenIsland.Constants;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Validation.CanWin.Interface;
 using System;

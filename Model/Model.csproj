@@ -69,6 +69,7 @@
     <Compile Include="IslandTile.cs">
       <DependentUpon>IslandModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partial\IslandTile.cs" />
     <Compile Include="Player.cs">
       <DependentUpon>IslandModel.tt</DependentUpon>
     </Compile>

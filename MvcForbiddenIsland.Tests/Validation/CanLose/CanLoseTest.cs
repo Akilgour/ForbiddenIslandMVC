@@ -14,7 +14,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             //Arrange 
             var canLose = new CanLoseBase();
             var islandTile = new IslandTile();
-            islandTile.SubmergedState = Enum.TileState.Normal;
+            islandTile.SubmergedState = Enum.TileState.Normal.ToString();
       
             //Act 
             var result = canLose.TileGone(islandTile);
@@ -29,7 +29,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             //Arrange 
             var canLose = new CanLoseBase();
             var islandTile = new IslandTile();
-            islandTile.SubmergedState = Enum.TileState.Flodded;
+            islandTile.SubmergedState = Enum.TileState.Flodded.ToString();
 
             //Act 
             var result = canLose.TileGone(islandTile);
@@ -44,7 +44,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanLose
             //Arrange 
             var canLose = new CanLoseBase();
             var islandTile = new IslandTile();
-            islandTile.SubmergedState = Enum.TileState.Gone;
+            islandTile.SubmergedState = Enum.TileState.Gone.ToString();
 
             //Act 
             var result = canLose.TileGone(islandTile);

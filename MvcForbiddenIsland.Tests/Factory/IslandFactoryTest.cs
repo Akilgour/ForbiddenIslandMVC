@@ -91,7 +91,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Phantom Rock");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.None);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.None.ToString());
         }
 
         [TestMethod]
@@ -147,7 +147,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Silver Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Grey);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Grey.ToString());
         }
 
         [TestMethod]
@@ -175,7 +175,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Fools' Landing");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Blue);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Blue.ToString());
         }
 
 
@@ -204,7 +204,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Gold Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Yellow);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Yellow.ToString());
         }
 
         [TestMethod]
@@ -218,7 +218,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Iron Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Black);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Black.ToString());
         }
 
         [TestMethod]
@@ -232,7 +232,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Bronze Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Red);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Red.ToString());
         }
 
         [TestMethod]
@@ -246,7 +246,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Copper Gate");
-            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Green);
+            Assert.AreEqual(islandTile.StartingTileForPlayer, PlayerColour.Green.ToString());
         }
 
         [TestMethod]
@@ -287,7 +287,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var islandTileCount = island.IslandBoard.Where(x => x.StartingTileForPlayer != PlayerColour.None).Count();
+            var islandTileCount = island.IslandBoard.Where(x => x.StartingTileForPlayer != PlayerColour.None.ToString()).Count();
             Assert.AreEqual(islandTileCount, 6);
         }
 
@@ -336,8 +336,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[0].rowNumber, 1);
-            Assert.AreEqual(island.IslandBoard[0].columnNumber, 3);
+            Assert.AreEqual(island.IslandBoard[0].RowNumber, 1);
+            Assert.AreEqual(island.IslandBoard[0].ColumnNumber, 3);
         }
 
         [TestMethod]
@@ -350,8 +350,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[1].rowNumber, 1);
-            Assert.AreEqual(island.IslandBoard[1].columnNumber, 4);
+            Assert.AreEqual(island.IslandBoard[1].RowNumber, 1);
+            Assert.AreEqual(island.IslandBoard[1].ColumnNumber, 4);
         }
 
         [TestMethod]
@@ -364,8 +364,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[2].rowNumber, 2);
-            Assert.AreEqual(island.IslandBoard[2].columnNumber, 2);
+            Assert.AreEqual(island.IslandBoard[2].RowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[2].ColumnNumber, 2);
         }
 
         [TestMethod]
@@ -378,8 +378,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[3].rowNumber, 2);
-            Assert.AreEqual(island.IslandBoard[3].columnNumber, 3);
+            Assert.AreEqual(island.IslandBoard[3].RowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[3].ColumnNumber, 3);
         }
 
         [TestMethod]
@@ -392,8 +392,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[4].rowNumber, 2);
-            Assert.AreEqual(island.IslandBoard[4].columnNumber, 4);
+            Assert.AreEqual(island.IslandBoard[4].RowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[4].ColumnNumber, 4);
         }
 
         [TestMethod]
@@ -406,8 +406,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[5].rowNumber, 2);
-            Assert.AreEqual(island.IslandBoard[5].columnNumber, 5);
+            Assert.AreEqual(island.IslandBoard[5].RowNumber, 2);
+            Assert.AreEqual(island.IslandBoard[5].ColumnNumber, 5);
         }
 
         [TestMethod]
@@ -420,8 +420,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[6].rowNumber, 3);
-            Assert.AreEqual(island.IslandBoard[6].columnNumber, 1);
+            Assert.AreEqual(island.IslandBoard[6].RowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[6].ColumnNumber, 1);
         }
 
         [TestMethod]
@@ -434,8 +434,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[7].rowNumber, 3);
-            Assert.AreEqual(island.IslandBoard[7].columnNumber, 2);
+            Assert.AreEqual(island.IslandBoard[7].RowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[7].ColumnNumber, 2);
         }
 
         [TestMethod]
@@ -448,8 +448,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[8].rowNumber, 3);
-            Assert.AreEqual(island.IslandBoard[8].columnNumber, 3);
+            Assert.AreEqual(island.IslandBoard[8].RowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[8].ColumnNumber, 3);
         }
 
         [TestMethod]
@@ -462,8 +462,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[9].rowNumber, 3);
-            Assert.AreEqual(island.IslandBoard[9].columnNumber, 4);
+            Assert.AreEqual(island.IslandBoard[9].RowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[9].ColumnNumber, 4);
         }
 
         [TestMethod]
@@ -476,8 +476,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[10].rowNumber, 3);
-            Assert.AreEqual(island.IslandBoard[10].columnNumber, 5);
+            Assert.AreEqual(island.IslandBoard[10].RowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[10].ColumnNumber, 5);
         }
 
         [TestMethod]
@@ -490,8 +490,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[11].rowNumber, 3);
-            Assert.AreEqual(island.IslandBoard[11].columnNumber, 6);
+            Assert.AreEqual(island.IslandBoard[11].RowNumber, 3);
+            Assert.AreEqual(island.IslandBoard[11].ColumnNumber, 6);
         }
         [TestMethod]
         public void TileIsAtFourOne_IsValid()
@@ -503,8 +503,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[12].rowNumber, 4);
-            Assert.AreEqual(island.IslandBoard[12].columnNumber, 1);
+            Assert.AreEqual(island.IslandBoard[12].RowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[12].ColumnNumber, 1);
         }
 
         [TestMethod]
@@ -517,8 +517,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[13].rowNumber, 4);
-            Assert.AreEqual(island.IslandBoard[13].columnNumber, 2);
+            Assert.AreEqual(island.IslandBoard[13].RowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[13].ColumnNumber, 2);
         }
 
         [TestMethod]
@@ -531,8 +531,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[14].rowNumber, 4);
-            Assert.AreEqual(island.IslandBoard[14].columnNumber, 3);
+            Assert.AreEqual(island.IslandBoard[14].RowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[14].ColumnNumber, 3);
         }
 
         [TestMethod]
@@ -545,8 +545,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[15].rowNumber, 4);
-            Assert.AreEqual(island.IslandBoard[15].columnNumber, 4);
+            Assert.AreEqual(island.IslandBoard[15].RowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[15].ColumnNumber, 4);
         }
 
         [TestMethod]
@@ -559,8 +559,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[16].rowNumber, 4);
-            Assert.AreEqual(island.IslandBoard[16].columnNumber, 5);
+            Assert.AreEqual(island.IslandBoard[16].RowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[16].ColumnNumber, 5);
         }
 
         [TestMethod]
@@ -573,8 +573,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[17].rowNumber, 4);
-            Assert.AreEqual(island.IslandBoard[17].columnNumber, 6);
+            Assert.AreEqual(island.IslandBoard[17].RowNumber, 4);
+            Assert.AreEqual(island.IslandBoard[17].ColumnNumber, 6);
         }
 
         [TestMethod]
@@ -587,8 +587,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[18].rowNumber, 5);
-            Assert.AreEqual(island.IslandBoard[18].columnNumber, 2);
+            Assert.AreEqual(island.IslandBoard[18].RowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[18].ColumnNumber, 2);
         }
 
         [TestMethod]
@@ -601,8 +601,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[19].rowNumber, 5);
-            Assert.AreEqual(island.IslandBoard[19].columnNumber, 3);
+            Assert.AreEqual(island.IslandBoard[19].RowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[19].ColumnNumber, 3);
         }
 
         [TestMethod]
@@ -615,8 +615,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[20].rowNumber, 5);
-            Assert.AreEqual(island.IslandBoard[20].columnNumber, 4);
+            Assert.AreEqual(island.IslandBoard[20].RowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[20].ColumnNumber, 4);
         }
 
         [TestMethod]
@@ -629,8 +629,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[21].rowNumber, 5);
-            Assert.AreEqual(island.IslandBoard[21].columnNumber, 5);
+            Assert.AreEqual(island.IslandBoard[21].RowNumber, 5);
+            Assert.AreEqual(island.IslandBoard[21].ColumnNumber, 5);
         }
 
         [TestMethod]
@@ -643,8 +643,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[22].rowNumber, 6);
-            Assert.AreEqual(island.IslandBoard[22].columnNumber, 3);
+            Assert.AreEqual(island.IslandBoard[22].RowNumber, 6);
+            Assert.AreEqual(island.IslandBoard[22].ColumnNumber, 3);
         }
 
         [TestMethod]
@@ -657,8 +657,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            Assert.AreEqual(island.IslandBoard[23].rowNumber, 6);
-            Assert.AreEqual(island.IslandBoard[23].columnNumber, 4);
+            Assert.AreEqual(island.IslandBoard[23].RowNumber, 6);
+            Assert.AreEqual(island.IslandBoard[23].ColumnNumber, 4);
         }
 
         [TestMethod]

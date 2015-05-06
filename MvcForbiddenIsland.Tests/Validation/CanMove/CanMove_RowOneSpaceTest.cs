@@ -16,17 +16,17 @@ namespace MvcForbiddenIsland.Tests.Validation.CanMove
     {
         private IslandTile IslandTileAtRowOneColumnThree()
         {
-            return new IslandTile() { rowNumber = 1, columnNumber = 3 };
+            return new IslandTile() { RowNumber = 1, ColumnNumber = 3 };
         }
 
         private IslandTile IslandTileAtRowTwoColumnThree()
         {
-            return new IslandTile() { rowNumber = 2, columnNumber = 3 };
+            return new IslandTile() { RowNumber = 2, ColumnNumber = 3 };
         }
 
         private IslandTile IslandTileAtRowThreeColumnThree()
         {
-            return new IslandTile() { rowNumber = 3, columnNumber = 3 };
+            return new IslandTile() { RowNumber = 3, ColumnNumber = 3 };
         }
 
         [TestMethod]

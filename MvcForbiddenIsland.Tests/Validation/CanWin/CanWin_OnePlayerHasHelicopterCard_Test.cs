@@ -81,14 +81,14 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerOneDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME.ToString()).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerOneDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, false);
-            Assert.AreEqual(result.ErrorMessage, CanWinConstants.NO_HELICOTER_LIFT_CARD);
+            Assert.AreEqual(result.ErrorMessage, CanWinConstants.NO_HELICOTER_LIFT_CARD.ToString());
         }
 
         [TestMethod]
@@ -100,14 +100,14 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerTwoDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME.ToString()).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerTwoDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);
 
             //Assert
             Assert.AreEqual(result.IsValid, false);
-            Assert.AreEqual(result.ErrorMessage, CanWinConstants.NO_HELICOTER_LIFT_CARD);
+            Assert.AreEqual(result.ErrorMessage, CanWinConstants.NO_HELICOTER_LIFT_CARD.ToString());
         }
 
         [TestMethod]
@@ -119,7 +119,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerThreeDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME.ToString()).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerThreeDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);
@@ -138,7 +138,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerFourDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.SANDBAG_NAME.ToString()).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerFourDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);
@@ -157,7 +157,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerOneDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerOneDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);
@@ -176,7 +176,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerTwoDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerTwoDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);
@@ -195,7 +195,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerThreeDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerThreeDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);
@@ -214,7 +214,7 @@ namespace MvcForbiddenIsland.Tests.Validation.CanWin
 
             var treasureDeckFactory = new TreasureDeckFactory();
             var playerTreasureCards = new TreasureDrawDeckFactory(treasureDeckFactory.Create()).Create();
-            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerFourDeck;
+            playerTreasureCards.First(x => x.Name == CardConstants.HELICOPTERLIFT_NAME).DeckTheCardIsIn = Enum.TeasureCardDeckId.PlayerFourDeck.ToString();
 
             //Act 
             var result = canWin.CanWin(islandTile, playerTreasureCards);

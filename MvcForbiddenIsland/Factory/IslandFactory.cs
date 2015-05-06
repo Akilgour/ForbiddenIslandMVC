@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Enum;
+﻿using Model;
+using MvcForbiddenIsland.Enum;
 using MvcForbiddenIsland.Models;
 using MvcForbiddenIsland.Models.Interface;
 using System;
@@ -93,10 +94,10 @@ namespace MvcForbiddenIsland.Factory
             island.IslandBoard = islandBoard.OrderBy(x => Guid.NewGuid()).ToList();
 
             //Since the list has been randomised by the above order, line i just set the firt item it find that can have a status and set it to have a staute
-            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.StatueOfTheWind).HasStatus = true;
-            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.CrystalOfFire).HasStatus = true;
-            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.EarthStone).HasStatus = true;
-            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.OceansChalice).HasStatus = true;
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.StatueOfTheWind.ToString()).HasStatue = true;
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.CrystalOfFire.ToString()).HasStatue = true;
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.EarthStone.ToString()).HasStatue = true;
+            island.IslandBoard.First(x => x.CanHaveStatue == TreasureStatue.OceansChalice.ToString()).HasStatue = true;
 
 
             SetRowAnColumnNumber(island.IslandBoard[0], 1, 3);
@@ -167,10 +168,10 @@ namespace MvcForbiddenIsland.Factory
         }
 
 
-        private static void SetRowAnColumnNumber(IslandTile islandTile, int rowNumber, int columnNumber)
+        private static void SetRowAnColumnNumber(IslandTile islandTile, int RowNumber, int ColumnNumber)
         {
-            islandTile.columnNumber = columnNumber;
-            islandTile.rowNumber = rowNumber;
+            islandTile.ColumnNumber = ColumnNumber;
+            islandTile.RowNumber = RowNumber;
         }
 
         private IslandTile CreateIslandTile(string tileName)
@@ -192,33 +193,33 @@ namespace MvcForbiddenIsland.Factory
         {
             return CreateIslandTile(tileName, startingTileForPlayer, helicopterSite, TreasureStatue.None, false);
         }
-        private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer, bool helicopterSite, TreasureStatue TreasureStatue, bool HasStatus  )
+        private IslandTile CreateIslandTile(string tileName, PlayerColour startingTileForPlayer, bool helicopterSite, TreasureStatue TreasureStatue, bool HasStatue  )
         {
             var islandTile = new IslandTile();
             islandTile.Id = Guid.NewGuid();
             islandTile.Name = tileName;
-            islandTile.StartingTileForPlayer = startingTileForPlayer;
-            islandTile.SubmergedState = TileState.Normal;
+            islandTile.StartingTileForPlayer = startingTileForPlayer.ToString();
+            islandTile.SubmergedState = TileState.Normal.ToString();
             islandTile.HelicopterSite = helicopterSite;
             islandTile.PlayersOnTile = new List<Player>();
-            islandTile.CanHaveStatue = TreasureStatue;
-            islandTile.HasStatus = HasStatus;
+            islandTile.CanHaveStatue = TreasureStatue.ToString();
+            islandTile.HasStatue = HasStatue;
             return islandTile;
         }
 
-        private IslandTile CreateSeaTile(int rowNumber, int columnNumber)
+        private IslandTile CreateSeaTile(int RowNumber, int ColumnNumber)
         {
             var islandTile = new IslandTile();
             islandTile.Id = Guid.NewGuid();
             islandTile.Name = "Sea";
-            islandTile.StartingTileForPlayer = PlayerColour.None;
-            islandTile.SubmergedState = TileState.Gone;
+            islandTile.StartingTileForPlayer = PlayerColour.None.ToString();
+            islandTile.SubmergedState = TileState.Gone.ToString();
             islandTile.HelicopterSite = false;
-            islandTile.rowNumber = rowNumber;
-            islandTile.columnNumber = columnNumber;
+            islandTile.RowNumber = RowNumber;
+            islandTile.ColumnNumber = ColumnNumber;
             islandTile.PlayersOnTile = new List<Player>();
-            islandTile.CanHaveStatue = TreasureStatue.None;
-            islandTile.HasStatus = false ;
+            islandTile.CanHaveStatue = TreasureStatue.None.ToString();
+            islandTile.HasStatue = false ;
             return islandTile;
         }
 

@@ -1,23 +1,23 @@
-﻿using MvcForbiddenIsland.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using MvcForbiddenIsland.Enum;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace MvcForbiddenIsland.Models.Interface
-{
-    public interface IPlayer
-    {
-        Guid Id { get; set; }
-        string Name { get; set; }
-        string Action { get; set; }
-        PlayerColour Colour { get; set; }
-        TeasureCardDeckId PlayerHandId { get; set; }
-        bool HasEarthStoneTreasureStatue { get; set; }
-        bool HasStatueOfTheWindTreasureStatue { get; set; }
-        bool HasCrystalOfFireTreasureStatue { get; set; }
-        bool HasOceansChaliceTreasureStatue { get; set; }
+//namespace MvcForbiddenIsland.Models.Interface
+//{
+//    public interface IPlayer
+//    {
+//        Guid Id { get; set; }
+//        string Name { get; set; }
+//        string Action { get; set; }
+//        PlayerColour Colour { get; set; }
+//        TeasureCardDeckId PlayerHandId { get; set; }
+//        bool HasEarthStoneTreasureStatue { get; set; }
+//        bool HasStatueOfTheWindTreasureStatue { get; set; }
+//        bool HasCrystalOfFireTreasureStatue { get; set; }
+//        bool HasOceansChaliceTreasureStatue { get; set; }
         
-    }
-}
+//    }
+//}

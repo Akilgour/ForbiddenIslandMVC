@@ -25,7 +25,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Temple of the Moon");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.EarthStone);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.EarthStone.ToString());
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Temple of the Sun");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.EarthStone);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.EarthStone.ToString());
         }
         
         [TestMethod]
@@ -53,7 +53,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Coral Palace");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.OceansChalice);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.OceansChalice.ToString());
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Tidal Palace");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.OceansChalice);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.OceansChalice.ToString());
         }
 
 
@@ -82,7 +82,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Cave of Embers");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.CrystalOfFire);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.CrystalOfFire.ToString());
         }
 
 
@@ -97,7 +97,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Cave of Shadows");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.CrystalOfFire);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.CrystalOfFire.ToString());
         }
            
         [TestMethod]
@@ -111,7 +111,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Howling Garden");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.StatueOfTheWind);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.StatueOfTheWind.ToString());
         }
 
         [TestMethod]
@@ -125,7 +125,7 @@ namespace MvcForbiddenIsland.Tests.Factory
 
             //Assert
             var islandTile = island.IslandBoard.SingleOrDefault(x => x.Name == "Whispering Garden");
-            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.StatueOfTheWind);
+            Assert.AreEqual(islandTile.CanHaveStatue, TreasureStatue.StatueOfTheWind.ToString());
         }
 
         [TestMethod]
@@ -138,7 +138,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var islandTileCount = island.IslandBoard.Count(x => x.CanHaveStatue == TreasureStatue.None);
+            var islandTileCount = island.IslandBoard.Count(x => x.CanHaveStatue == TreasureStatue.None.ToString());
             Assert.AreEqual(islandTileCount, 28);
         }
 
@@ -153,8 +153,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.OceansChalice);
-            var hasTilesCount = tiles.Where(x => x.HasStatus).Count();
+            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.OceansChalice.ToString());
+            var hasTilesCount = tiles.Where(x => x.HasStatue).Count();
             Assert.AreEqual(hasTilesCount, 1);
         }
 
@@ -168,8 +168,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.CrystalOfFire);
-            var hasTilesCount = tiles.Where(x => x.HasStatus).Count();
+            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.CrystalOfFire.ToString());
+            var hasTilesCount = tiles.Where(x => x.HasStatue).Count();
             Assert.AreEqual(hasTilesCount, 1);
         }
 
@@ -184,8 +184,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.EarthStone);
-            var hasTilesCount = tiles.Where(x => x.HasStatus).Count();
+            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.EarthStone.ToString());
+            var hasTilesCount = tiles.Where(x => x.HasStatue).Count();
             Assert.AreEqual(hasTilesCount, 1);
         }
 
@@ -200,8 +200,8 @@ namespace MvcForbiddenIsland.Tests.Factory
             var island = islandFactory.Create();
 
             //Assert
-            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.StatueOfTheWind);
-            var hasTilesCount = tiles.Where(x => x.HasStatus).Count();
+            var tiles = island.IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.StatueOfTheWind.ToString());
+            var hasTilesCount = tiles.Where(x => x.HasStatue).Count();
             Assert.AreEqual(hasTilesCount, 1);
         }
     }

@@ -37,7 +37,7 @@ namespace MvcForbiddenIsland.Tests.Factory
             //Assert
             foreach (var card in treasureCardDeck)
             {
-                Assert.AreEqual(card.DeckTheCardIsIn, TeasureCardDeckId.DrawDeck);
+                Assert.AreEqual(card.DeckTheCardIsIn, TeasureCardDeckId.DrawDeck.ToString());
             }
         }
 

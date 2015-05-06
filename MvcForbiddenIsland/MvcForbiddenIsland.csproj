@@ -364,6 +364,10 @@
       <Project>{b1a1a2e4-c795-474f-b4c6-d16df15cfcf7}</Project>
       <Name>InversionOfControl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{26836c13-e25b-4daa-a9a3-54d37a38c9e4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

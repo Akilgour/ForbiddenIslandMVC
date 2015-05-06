@@ -7,20 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+using System;
+using System.Collections.Generic;
+
+public partial class IslandTile
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class IslandTile
-    {
-        public System.Guid Id { get; set; }
-        public string Name { get; set; }
-        public string SubmergedState { get; set; }
-        public string StartingTileForPlayer { get; set; }
-        public bool HelicopterSite { get; set; }
-        public int RowNumber { get; set; }
-        public int ColumnNumber { get; set; }
-        public bool HasStatue { get; set; }
-    }
+    public System.Guid Id { get; set; }
+    public string Name { get; set; }
+    public string SubmergedState { get; set; }
+    public string StartingTileForPlayer { get; set; }
+    public bool HelicopterSite { get; set; }
+    public int RowNumber { get; set; }
+    public int ColumnNumber { get; set; }
+    public bool HasStatue { get; set; }
+    public string CanHaveStatue { get; set; }
 }

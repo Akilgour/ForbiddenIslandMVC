@@ -1,4 +1,5 @@
-﻿using MvcForbiddenIsland.Constants;
+﻿using Model;
+using MvcForbiddenIsland.Constants;
 using MvcForbiddenIsland.Enum;
 using MvcForbiddenIsland.Helpers;
 using MvcForbiddenIsland.Models;
@@ -39,7 +40,7 @@ namespace MvcForbiddenIsland.Validation.CanLose
 
         private void AreBothTreasuresGone(List<IslandTile> IslandBoard, string TreasureName, TreasureStatue TreasureStatue)
         {
-            var tileThatHaveTheStatues = IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue).ToList();
+            var tileThatHaveTheStatues = IslandBoard.Where(x => x.CanHaveStatue == TreasureStatue.ToString()).ToList();
             if (TileGone(tileThatHaveTheStatues.First()) && TileGone(tileThatHaveTheStatues.Last()))
             {
                 goneTileNames.Add(TreasureName);

@@ -151,6 +151,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{26836c13-e25b-4daa-a9a3-54d37a38c9e4}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcForbiddenIsland\MvcForbiddenIsland.csproj">
       <Project>{574F207B-61D9-4839-9560-7F7F3DBC523C}</Project>
       <Name>MvcForbiddenIsland</Name>
